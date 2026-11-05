@@ -33,13 +33,15 @@ function id_csrf():string {id_session();return $_SESSION['csrf']??=bin2hex(rando
 function id_check_csrf():void {
  if(!hash_equals(id_csrf(),(string)($_POST['csrf']??''))){http_response_code(403);exit('Token inválido.');}
  $origin=(string)($_SERVER['HTTP_ORIGIN']??'');
- if($origin!==''){
+ // Algunos navegadores/extensiones/proxies envían "Origin: null" en POST
+ // del mismo sitio. El token CSRF ya se validó arriba, así que no bloqueamos.
+ if($origin!=='' && strtolower($origin)!=='null'){
   $expected=(string)id_cfg()['base_url'];
   $sameScheme=parse_url($origin,PHP_URL_SCHEME)===parse_url($expected,PHP_URL_SCHEME);
   $sameHost=strcasecmp((string)parse_url($origin,PHP_URL_HOST),(string)parse_url($expected,PHP_URL_HOST))===0;
   $originPort=parse_url($origin,PHP_URL_PORT)?:443;$expectedPort=parse_url($expected,PHP_URL_PORT)?:443;
   if(!$sameScheme||!$sameHost||$originPort!==$expectedPort){
-   error_log('MPI origin rejected: origin='.var_export($origin,true).' expected='.var_export($expected,true).' schemeO='.var_export(parse_url($origin,PHP_URL_SCHEME),true).' schemeE='.var_export(parse_url($expected,PHP_URL_SCHEME),true).' hostO='.var_export(parse_url($origin,PHP_URL_HOST),true).' hostE='.var_export(parse_url($expected,PHP_URL_HOST),true).' portO='.var_export(parse_url($origin,PHP_URL_PORT),true).' portE='.var_export(parse_url($expected,PHP_URL_PORT),true));
+   error_log('MPI origin rejected: origin='.$origin.' expected='.$expected);
    http_response_code(403);exit('Origen no permitido.');
   }
  }

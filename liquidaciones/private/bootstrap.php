@@ -77,7 +77,7 @@ function mpi_check_csrf(): void {
     if (!is_string($val)||!hash_equals(mpi_csrf(),$val)){http_response_code(403);exit('Validación de sesión fallida (CSRF).');}
     // Reject cross-origin POST (Origin optional for older browsers)
     $origin=$_SERVER['HTTP_ORIGIN']??'';
-    if ($origin!=='' && (parse_url($origin,PHP_URL_HOST) !== (explode(':',(string)($_SERVER['HTTP_HOST']??'--'))[0]))) {http_response_code(403);exit('Origen no permitido.');}
+    if ($origin!=='' && strtolower((string)$origin)!=='null' && (parse_url($origin,PHP_URL_HOST) !== (explode(':',(string)($_SERVER['HTTP_HOST']??'--'))[0]))) {http_response_code(403);exit('Origen no permitido.');}
 }
 function mpi_e(?string $v): string {return htmlspecialchars((string)$v,ENT_QUOTES|ENT_SUBSTITUTE,'UTF-8');}
 function mpi_redirect(string $url): never {header('Location: '.$url,true,303);exit;}
