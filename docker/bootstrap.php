@@ -769,11 +769,15 @@ function main(): void
 
     $credentials = [];
     foreach (['tienda', 'identidad', 'liquidaciones'] as $key) {
+        $overrideUser = getenv('MPI_DB_USER_'.strtoupper($key));
+        $overridePass = getenv('MPI_DB_PASSWORD_'.strtoupper($key));
         $credentials[$key] = [
             'host' => $parsed['host'],
             'port' => $parsed['port'],
-            'user' => env_nonempty('MPI_DB_USER_'.strtoupper($key), $parsed['user']),
-            'password' => env_raw('MPI_DB_PASSWORD_'.strtoupper($key), $parsed['password']) ?? '',
+            'user' => ($overrideUser === false || trim($overrideUser) === '') ? $parsed['user'] : trim($overrideUser),
+            // Una variable vacía significa "usar la contraseña de MARIADB_URL",
+            // no una contraseña vacía.
+            'password' => ($overridePass === false || $overridePass === '') ? $parsed['password'] : $overridePass,
             'name' => '',
         ];
     }
