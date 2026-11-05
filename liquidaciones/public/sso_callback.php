@@ -26,4 +26,4 @@ try{
  session_regenerate_id(true);
  $_SESSION=['uid'=>(int)$local['id'],'ver'=>(string)$local['credential_version'],'last'=>time(),'csrf'=>bin2hex(random_bytes(32)),'sso_identity'=>['id'=>$id,'sid'=>$r['session_id']]];
  header('Location: /admin.php',true,303);exit;
-}catch(Throwable $e){error_log('Liquid SSO callback: '.get_class($e));http_response_code(403);echo '<!doctype html><html lang="es"><meta charset="utf-8"><title>Acceso no autorizado</title><p>No se pudo completar el acceso a liquidaciones. Verifica los permisos y la base de datos.</p><a href="/admin.php">Volver</a></html>';}
+}catch(Throwable $e){error_log('Liquid SSO callback: '.get_class($e).' '.$e->getMessage());http_response_code(403);echo '<!doctype html><html lang="es"><meta charset="utf-8"><title>Acceso no autorizado</title><p>No se pudo completar el acceso a liquidaciones. Verifica los permisos y la base de datos.</p><a href="/admin.php">Volver</a></html>';}

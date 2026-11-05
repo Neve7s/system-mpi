@@ -11,4 +11,4 @@ try{
  $_SESSION['auth']=['id'=>(int)$u['id'],'email'=>$u['email'],'username'=>$u['username'],'role'=>$u['role'],'auth_version'=>(int)$u['auth_version'],'signed_in_at'=>time(),'last_seen_at'=>time()];
  $_SESSION['sso_identity']=['id'=>(int)$r['user_id'],'sid'=>$r['session_id']];
  header('Location: /admin/editor.php',true,303);exit;
-}catch(Throwable $e){error_log('Store SSO callback: '.get_class($e));http_response_code(403);echo '<!doctype html><html lang="es"><meta charset="utf-8"><title>Acceso no autorizado</title><body><p>No fue posible completar el acceso a la tienda.</p><a href="/admin/">Intentar nuevamente</a></body></html>';}
+}catch(Throwable $e){error_log('Store SSO callback: '.get_class($e).' '.$e->getMessage());http_response_code(403);echo '<!doctype html><html lang="es"><meta charset="utf-8"><title>Acceso no autorizado</title><body><p>No fue posible completar el acceso a la tienda.</p><a href="/admin/">Intentar nuevamente</a></body></html>';}
