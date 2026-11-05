@@ -1,0 +1,9 @@
+# Se aplica únicamente si public/ es DocumentRoot y Apache permite overrides.
+Options -Indexes
+DirectoryIndex index.php
+<FilesMatch "^(?!index\.php$|admin\.php$|panel\.php$|quote\.php$|privacidad\.php$|copias\.php$|sesion\.php$|sso_callback\.php$).*\.php$">
+    Require all denied
+</FilesMatch>
+<FilesMatch "(?i)^(?:\..*|.*\.(?:html|json|zip|sql|bak|env|ini|log|conf|sqlite|db|pem|key))$">
+    Require all denied
+</FilesMatch>

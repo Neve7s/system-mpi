@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+# La portada controla noindex/index desde el CMS. Nunca indexar el administrador.

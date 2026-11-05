@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+    ServerName ${MPI_DOMAIN_ACCESO}
+    DocumentRoot /var/www/mpi/acceso/public
+    DirectoryIndex index.php
+
+    <Directory /var/www/mpi/acceso/public>
+        Options -Indexes +FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog /proc/self/fd/2
+    CustomLog /proc/self/fd/1 combined
+</VirtualHost>

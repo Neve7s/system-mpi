@@ -1,0 +1,16 @@
+
+/* V89 · Administrador táctil y modos de pantalla reducida. */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media(max-width:790px){
+ .adminbar .toolbar{grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}
+ .adminbar .toolbar>*{min-width:0;max-width:100%}
+ .adminbar .toolbar .mpi85-logout-form{grid-column:1/-1;max-width:100%}
+ .adminbar .toolbar .mpi85-logout-btn{width:100%;min-height:44px}
+ .editorContent :where(.panelCard,.repeaterCard,.fieldGrid,.field){min-width:0;max-width:100%}
+ .editorContent :where(input,select,textarea){font-size:16px!important}
+}
+@media(max-width:390px){
+ .adminbar .path small{font-size:10px}
+ .adminbar .toolbar{gap:5px}
+ .repeatTitle .recordActions{max-width:100%;flex-wrap:wrap}
+}

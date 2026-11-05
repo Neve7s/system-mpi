@@ -1,0 +1,81 @@
+# Variante opcional: un servicio por dominio.
+# Úsala solo si tu versión de Coolify no permite varios dominios en un servicio.
+# La variante recomendada es docker-compose.yml (un solo servicio, tres dominios).
+#
+# Cada servicio comparte el volumen mpi_data para que MPI_APP_KEY y los
+# secretos SSO derivados sean idénticos en los tres contenedores.
+
+x-mpi: &mpi
+  build:
+    context: .
+    dockerfile: Dockerfile
+  restart: unless-stopped
+  expose:
+    - "80"
+  extra_hosts:
+    - "${MPI_DOMAIN_TIENDA:-megaprimeimport.com}:host-gateway"
+    - "${MPI_DOMAIN_ACCESO:-acceso.megaprimeimport.com}:host-gateway"
+    - "${MPI_DOMAIN_LIQUIDACIONES:-liquidaciones.megaprimeimport.com}:host-gateway"
+  environment: &mpi-env
+    MARIADB_URL: ${MARIADB_URL:-}
+    MPI_DOMAIN_TIENDA: ${MPI_DOMAIN_TIENDA:-megaprimeimport.com}
+    MPI_DOMAIN_ACCESO: ${MPI_DOMAIN_ACCESO:-acceso.megaprimeimport.com}
+    MPI_DOMAIN_LIQUIDACIONES: ${MPI_DOMAIN_LIQUIDACIONES:-liquidaciones.megaprimeimport.com}
+    MPI_DB_MODE: ${MPI_DB_MODE:-auto}
+    MPI_DB_PREFIX: ${MPI_DB_PREFIX:-mpi}
+    MPI_DB_TIENDA: ${MPI_DB_TIENDA:-}
+    MPI_DB_IDENTIDAD: ${MPI_DB_IDENTIDAD:-}
+    MPI_DB_LIQUIDACIONES: ${MPI_DB_LIQUIDACIONES:-}
+    MPI_DB_USER_TIENDA: ${MPI_DB_USER_TIENDA:-}
+    MPI_DB_PASSWORD_TIENDA: ${MPI_DB_PASSWORD_TIENDA:-}
+    MPI_DB_USER_IDENTIDAD: ${MPI_DB_USER_IDENTIDAD:-}
+    MPI_DB_PASSWORD_IDENTIDAD: ${MPI_DB_PASSWORD_IDENTIDAD:-}
+    MPI_DB_USER_LIQUIDACIONES: ${MPI_DB_USER_LIQUIDACIONES:-}
+    MPI_DB_PASSWORD_LIQUIDACIONES: ${MPI_DB_PASSWORD_LIQUIDACIONES:-}
+    MPI_DB_CONNECT_RETRIES: ${MPI_DB_CONNECT_RETRIES:-30}
+    MPI_APP_KEY: ${MPI_APP_KEY:-}
+    MPI_ENABLE_SSO: ${MPI_ENABLE_SSO:-1}
+    MPI_SSO_SECRET_TIENDA: ${MPI_SSO_SECRET_TIENDA:-}
+    MPI_SSO_SECRET_LIQUIDACIONES: ${MPI_SSO_SECRET_LIQUIDACIONES:-}
+    MPI_ADMIN_EMAIL: ${MPI_ADMIN_EMAIL:-}
+    MPI_ADMIN_USERNAME: ${MPI_ADMIN_USERNAME:-admin}
+    MPI_ADMIN_PASSWORD: ${MPI_ADMIN_PASSWORD:-}
+    MPI_SEED_ADMIN: ${MPI_SEED_ADMIN:-1}
+    MPI_SEED_DEMO: ${MPI_SEED_DEMO:-1}
+    MP_ALLOW_DEMO_PUBLIC: ${MP_ALLOW_DEMO_PUBLIC:-}
+    MPI_RUN_MIGRATIONS: ${MPI_RUN_MIGRATIONS:-1}
+    MP_PUBLIC_BASE_URL: ${MP_PUBLIC_BASE_URL:-}
+    MP_RESET_FROM: ${MP_RESET_FROM:-}
+  volumes:
+    - mpi_data:/data
+    - mpi_sessions:/var/lib/php/sessions
+  healthcheck:
+    test: ["CMD", "curl", "-fsS", "http://127.0.0.1/"]
+    interval: 30s
+    timeout: 5s
+    retries: 5
+    start_period: 90s
+
+services:
+  tienda:
+    <<: *mpi
+    volumes:
+      - mpi_data:/data
+      - mpi_sessions:/var/lib/php/sessions
+      - mpi_uploads_tienda:/var/www/mpi/tienda/public/uploads
+
+  acceso:
+    <<: *mpi
+
+  liquidaciones:
+    <<: *mpi
+    volumes:
+      - mpi_data:/data
+      - mpi_sessions:/var/lib/php/sessions
+      - mpi_uploads_liquidaciones:/var/www/mpi/liquidaciones/public/uploads
+
+volumes:
+  mpi_uploads_tienda:
+  mpi_uploads_liquidaciones:
+  mpi_data:
+  mpi_sessions:

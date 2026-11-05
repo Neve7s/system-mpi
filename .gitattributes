@@ -1,0 +1,18 @@
+* text=auto
+
+# Los scripts y plantillas de Docker deben viajar siempre con LF.
+Dockerfile text eol=lf
+docker/** text eol=lf
+*.sh text eol=lf
+*.conf.template text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sql text eol=lf
+
+# Recursos binarios: no convertir.
+*.png binary
+*.webp binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary

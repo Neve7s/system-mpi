@@ -1,0 +1,8 @@
+Options -Indexes
+# Solo imágenes con nombre aleatorio generado por la aplicación.
+<FilesMatch "(?i)^(?![a-f0-9]{32}\.(?:jpg|png|webp)$).+">
+ Require all denied
+</FilesMatch>
+<IfModule mod_php.c>
+ php_flag engine off
+</IfModule>

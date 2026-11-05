@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+    ServerName ${MPI_DOMAIN_TIENDA}
+    DocumentRoot /var/www/mpi/tienda/public
+    DirectoryIndex index.html index.php
+
+    <Directory /var/www/mpi/tienda/public>
+        Options -Indexes -MultiViews +FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog /proc/self/fd/2
+    CustomLog /proc/self/fd/1 combined
+</VirtualHost>

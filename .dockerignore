@@ -1,0 +1,38 @@
+.git
+.gitignore
+.gitattributes
+.github
+.env
+.env.*
+docker-compose*.yml
+
+# Configuración privada que se genera en tiempo de ejecución
+*.local.php
+acceso/private/config.php
+liquidaciones/private/config.php
+liquidaciones/private/sso.config.php
+tienda/app/sso.config.php
+
+# Documentación y evidencias que no necesita el contenedor
+docs
+despliegue
+integracion
+liquidaciones/documentacion
+liquidaciones/vista-local
+pruebas/resultados_v1_3
+pruebas/*.py
+tienda/tests
+MANIFIESTO_SHA256_V1_3.json
+tienda/MANIFIESTO_V93_11.json
+*.md
+!docker/migrations/README.md
+
+# Artefactos y basura
+*.log
+*.bak
+*.old
+*.zip
+**/__pycache__/
+**/*.pyc
+.DS_Store
+Thumbs.db

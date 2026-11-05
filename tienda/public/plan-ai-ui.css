@@ -1,0 +1,31 @@
+/* MPI V91 — lectura asistida de planos; estilos aislados del catálogo y del CMS */
+#mpiPlanAi{margin:12px 0 4px;padding:14px;border:1px solid rgba(231,185,94,.53);border-radius:12px;background:rgba(25,43,48,.9);color:#f0f5f7;font-size:14px}
+#mpiPlanAi h4{margin:0 0 6px;color:#f2c76f;font-size:16px}
+#mpiPlanAi p,#mpiPlanAi small{line-height:1.5;color:#dfecf0}
+#mpiPlanAi .mpi-ai-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}
+#mpiPlanAi .mpi-ai-consent{display:flex;gap:9px;align-items:flex-start;line-height:1.45;cursor:pointer}
+#mpiPlanAi .mpi-ai-consent input{margin-top:3px;width:17px;height:17px;accent-color:#e6b451;flex-shrink:0}
+#mpiPlanAi button{background:#e9bb66;color:#101e24;border:1px solid #f6d99d;font-weight:750;border-radius:9px;padding:10px 13px;cursor:pointer}
+#mpiPlanAi button:disabled{opacity:.48;cursor:not-allowed}
+#mpiPlanAi .mpi-ai-secondary{background:transparent;color:#f8df9f}
+#mpiPlanAi .mpi-ai-status{font-size:13px;color:#bde8ff;margin:7px 0}
+#mpiPlanAi .mpi-ai-status.error{color:#ffbdab}
+#mpiPlanAi .mpi-ai-results{margin-top:12px}
+#mpiPlanAi .mpi-ai-results h5{color:#f5d080;font-size:15px;margin:10px 0}
+#mpiPlanAi .mpi-ai-row{padding:12px;margin:12px 0;border:1px solid #6a8590;border-radius:9px;background:#0d232b}
+#mpiPlanAi .mpi-ai-row b{color:#f5d080}
+#mpiPlanAi .mpi-ai-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:8px}
+#mpiPlanAi .mpi-ai-grid label{color:#f0f5f7;font-size:12px;font-weight:650;display:flex;flex-direction:column;gap:4px}
+#mpiPlanAi .mpi-ai-grid input,#mpiPlanAi .mpi-ai-grid select{width:100%;box-sizing:border-box;color:#fff;background:#061822;border:1px solid #718995;border-radius:6px;padding:9px;font:inherit;min-width:0}
+#mpiPlanAi .mpi-ai-row .mpi-ai-review{margin-top:10px}
+#mpiPlanAi .mpi-ai-warnings{color:#ffcf9e;margin:9px 0;padding-left:21px;line-height:1.55}
+#mpiPlanAi .mpi-ai-evidence{font-size:12px;color:#e2eaf1;margin-top:7px}
+#mpiPlanAi .mpi-ai-pill{display:inline-block;font-size:11px;border:1px solid #d5a655;color:#ffe1a1;padding:3px 7px;border-radius:99px;margin:5px 0}
+@media(max-width:720px){#mpiPlanAi{padding:10px}#mpiPlanAi .mpi-ai-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:410px){#mpiPlanAi .mpi-ai-grid{grid-template-columns:1fr}#mpiPlanAi button{width:100%}}
+/* V93.7: estado de IA local, revisión y acciones legibles en móvil. */
+#mpiPlanAi .mpi-ai-capabilities{margin:10px 0;padding:9px 11px;background:#14343c;border:1px solid #527e8a;border-radius:8px;color:#d9f8ef}
+#mpiPlanAi .mpi-ai-row-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between}
+#mpiPlanAi .mpi-ai-remove{margin-left:auto;padding:6px 10px;background:transparent;color:#ffd9ca;border:1px solid #ad655f;font-size:12px}
+#mpiPlanAi .mpi-ai-grid input:focus-visible,#mpiPlanAi .mpi-ai-grid select:focus-visible,#mpiPlanAi button:focus-visible{outline:3px solid #f1be72;outline-offset:2px}
+#mpiPlanAi .mpi-ai-controls button{min-width:0;max-width:100%;white-space:normal}

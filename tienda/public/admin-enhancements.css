@@ -1,0 +1,20 @@
+/* V85: salida de sesión visible, segura y usable en móviles. */
+.mpi85-logout-form{display:inline-flex;margin:0;align-items:stretch}
+.mpi85-logout-btn{min-height:43px;background:#342a2b;border:1px solid #ae797c;color:#ffdcda}
+.mpi85-logout-btn:hover{background:#603236;border-color:#e6a6a8;color:#fff}
+@media(max-width:790px){
+ .adminbar .toolbar{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+ .adminbar .toolbar .mpi85-logout-form{min-width:0}
+ .adminbar .toolbar .mpi85-logout-btn{width:100%;min-height:44px;white-space:normal}
+ .adminbar .toolbar .unsaved{grid-column:1/-1;order:10;text-align:right;padding:0 4px}
+}
+@media(max-width:390px){.adminbar .toolbar .mpi85-logout-btn{font-size:11px}}
+
+/* V93.2: salida visible de forma prioritaria en escritorio, tableta y móvil. */
+.adminbar .toolbar .mpi93-logout-priority{order:-1;flex:none;display:inline-flex;visibility:visible}
+.adminbar .toolbar .mpi93-logout-priority .mpi85-logout-btn{border:1px solid #d5a0a3;background:#442e30;color:#ffe6e6;font-weight:800;white-space:nowrap;min-height:44px}
+.adminbar .toolbar .mpi93-logout-priority .mpi85-logout-btn:focus-visible{outline:3px solid #f5ce79;outline-offset:2px}
+@media(max-width:790px){
+ .adminbar .toolbar .mpi93-logout-priority{grid-column:1/-1;order:-1;width:100%}
+ .adminbar .toolbar .mpi93-logout-priority .mpi85-logout-btn{width:100%;white-space:normal;min-height:48px}
+}

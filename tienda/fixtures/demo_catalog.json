@@ -1,0 +1,1715 @@
+{
+  "schema": 43,
+  "revision": 0,
+  "savedAt": "",
+  "branding": {
+    "name": "MEGA PRIME IMPORT",
+    "tagline": "CUBIERTAS · ACABADOS · HERRAMIENTAS · DEMO",
+    "logoEmblem": "assets/mpi_logo_megaprime_importaciones.png",
+    "logoWordmark": "",
+    "footerLogoEmblem": "assets/mpi_logo_megaprime_importaciones.png",
+    "footerLogoWordmark": "",
+    "browserIcon": "assets/mpi_logo_megaprime_importaciones.png"
+  },
+  "header": {
+    "topLeft": "ENTORNO DE PRUEBAS · DATOS FICTICIOS · NO REALIZAR COMPRAS",
+    "topRight": "SIMULACIÓN COMERCIAL · VALORES NO VIGENTES",
+    "search": "Buscar productos, categorías, colores...",
+    "topVisible": true,
+    "nav": [
+      {
+        "label": "INICIO",
+        "action": "section",
+        "target": "inicio"
+      },
+      {
+        "label": "CUBIERTAS",
+        "action": "category",
+        "target": "Cubiertas"
+      },
+      {
+        "label": "ACABADOS",
+        "action": "category",
+        "target": "Acabados"
+      },
+      {
+        "label": "HERRAMIENTAS",
+        "action": "category",
+        "target": "Herramientas"
+      },
+      {
+        "label": "MAQUINARIAS",
+        "action": "category",
+        "target": "Maquinarias"
+      },
+      {
+        "label": "ACCESORIOS",
+        "action": "category",
+        "target": "Accesorios"
+      },
+      {
+        "label": "CALCULADORA",
+        "action": "calculator",
+        "target": ""
+      },
+      {
+        "label": "COTIZAR",
+        "action": "cart",
+        "target": ""
+      },
+      {
+        "label": "DISTRIBUIDORES",
+        "action": "section",
+        "target": "distribuidores"
+      },
+      {
+        "label": "CATÁLOGO DIGITAL",
+        "action": "digital-catalog",
+        "target": "catalogo-digital"
+      }
+    ]
+  },
+  "hero": {
+    "eyebrow": "CATÁLOGO DEMOSTRATIVO · MEGA PRIME IMPORT",
+    "first": "IDEAS PARA",
+    "accent": "CONSTRUIR.",
+    "last": "COTIZA EN MODO DEMO.",
+    "description": "Explora una tienda de ejemplo de cubiertas, acabados y herramientas. Todas las especificaciones, fotografías, precios y datos de contacto son ilustrativos; no representan inventario ni ofertas reales.",
+    "note": "MODO DEMO · No se reciben pedidos, pagos ni solicitudes comerciales reales.",
+    "primary": "EXPLORAR CATÁLOGO →",
+    "secondary": "CALCULAR MATERIALES",
+    "featuredIds": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      200,
+      201,
+      203,
+      220
+    ],
+    "intervalSeconds": 4.5
+  },
+  "categorySection": {
+    "title": "EXPLORA",
+    "accent": "LAS CATEGORÍAS"
+  },
+  "categoryCarousel": {
+    "autoplay": true,
+    "seconds": 5.6,
+    "desktopCards": 3
+  },
+  "quoteUI": {
+    "maxWidth": 880,
+    "density": "compact",
+    "showProjectFields": true,
+    "showInfoNotes": false,
+    "savedTitle": "Mis cotizaciones guardadas"
+  },
+  "benefits": [
+    {
+      "title": "Catálogo de práctica",
+      "text": "Productos y fotografías ilustrativos"
+    },
+    {
+      "title": "Cotizaciones de ejemplo",
+      "text": "Precios ficticios; no confirman compras"
+    },
+    {
+      "title": "Formatos A4 y A5",
+      "text": "Simula propuestas imprimibles"
+    },
+    {
+      "title": "Panel editable",
+      "text": "Prueba el contenido sin publicar datos reales"
+    }
+  ],
+  "catalog": {
+    "title": "PRODUCTOS",
+    "accent": "DE DEMOSTRACIÓN",
+    "note": "PRECIOS FICTICIOS EN USD · Fotografías ilustrativas · No representan ofertas, existencias ni características comprobadas.",
+    "autoCarousel": true,
+    "autoSeconds": 4.8,
+    "cardsPerView": 4,
+    "featuredFirst": true,
+    "onlyFeatured": false,
+    "showCategoryFilters": true,
+    "showDescriptions": true
+  },
+  "categories": [
+    {
+      "name": "Cubiertas",
+      "description": "Tejas y láminas de demostración",
+      "image": "/uploads/products/f90f5b6e8d5db33344fa132b5044404a.webp",
+      "visible": true
+    },
+    {
+      "name": "Acabados",
+      "description": "Pisos y revestimientos ilustrativos",
+      "image": "/uploads/products/0108720f96a3f648a7181d726e6c8044.webp",
+      "visible": true
+    },
+    {
+      "name": "Herramientas",
+      "description": "Equipos y accesorios de ejemplo",
+      "image": "/uploads/products/03cffb90d37143461564d994d08dda9d.webp",
+      "visible": true
+    },
+    {
+      "name": "Maquinarias",
+      "description": "Equipos para obra (ejemplos)",
+      "image": "/uploads/products/4d125d5ee26387be71570c77ec9e8345.webp",
+      "visible": true
+    },
+    {
+      "name": "Accesorios",
+      "description": "Componentes de instalación ficticios",
+      "image": "/uploads/products/ccb15315320b5b74bbd4ce12b4e28477.webp",
+      "visible": true
+    },
+    {
+      "name": "Materiales",
+      "description": "Materiales para obras demostrativos",
+      "image": "/uploads/products/30981d45278f48f01e40c37ca66112ca.webp",
+      "visible": true
+    },
+    {
+      "name": "Vehículos",
+      "description": "Vehículos utilitarios de muestra",
+      "image": "/uploads/products/c0effe85e2518508df4ec51d5dbb4c8d.webp",
+      "visible": true
+    },
+    {
+      "name": "Servicios",
+      "description": "Categoría vacía para probar el catálogo editable",
+      "image": "/uploads/products/c8c6dbafe484dcc25c0bf319422a0534.webp",
+      "visible": true
+    }
+  ],
+  "products": [
+    {
+      "id": 100,
+      "name": "Teja española PVC / ASA",
+      "category": "Cubiertas",
+      "subcategory": "espanola",
+      "description": "2,5 mm · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/6d53fbde81ea3c9efe85835cca62c735.webp",
+      "colors": [
+        "Terracota",
+        "Negro",
+        "Verde",
+        "Azul",
+        "Rojo",
+        "Café"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 29.9,
+      "published": true,
+      "featured": true,
+      "presets": [
+        {
+          "label": "Teja española ASA PVC 2,5 mm",
+          "format": "Teja española PVC/ASA",
+          "thickness": "2.5",
+          "width": "1.05",
+          "usefulWidth": "0.96",
+          "length": "",
+          "yield": "",
+          "unit": "plancha",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "name": "Teja Roma colonial",
+      "category": "Cubiertas",
+      "subcategory": "roma",
+      "description": "Medidas y colores comerciales por confirmar · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/282fe4c9414b2a56877477d1b8bdbdd7.webp",
+      "colors": [
+        "Terracota",
+        "Negro",
+        "Verde",
+        "Azul",
+        "Rojo",
+        "Café"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 27.4,
+      "published": true,
+      "featured": true,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Teja Roma colonial",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "name": "Teja trapezoidal UPVC",
+      "category": "Cubiertas",
+      "subcategory": "trapezoidal",
+      "description": "Modelos y espesores por confirmar · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/37b5434a1ee7560d78c7c5d5fc6b186f.webp",
+      "colors": [
+        "Terracota",
+        "Negro",
+        "Verde",
+        "Azul",
+        "Rojo",
+        "Café"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 22.9,
+      "published": true,
+      "featured": true,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Teja trapezoidal UPVC",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "name": "Duratecho metálico",
+      "category": "Cubiertas",
+      "subcategory": "duratecho",
+      "description": "Especificaciones por confirmar · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/3eef6358b78a52b2da6b816c12c99074.webp",
+      "colors": [
+        "Terracota",
+        "Negro",
+        "Verde",
+        "Azul",
+        "Rojo",
+        "Café"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 18.75,
+      "published": true,
+      "featured": true,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Duratecho metálico",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "name": "Cubiteja",
+      "category": "Cubiertas",
+      "subcategory": "cubiteja",
+      "description": "Especificaciones por confirmar · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/9779fc7e9abae47851ad62a50eae8a7a.webp",
+      "colors": [
+        "Terracota",
+        "Negro",
+        "Verde",
+        "Azul",
+        "Rojo",
+        "Café"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 24.15,
+      "published": true,
+      "featured": true,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Cubiteja",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "name": "Policarbonato alveolar y sólido",
+      "category": "Cubiertas",
+      "subcategory": "policarbonato",
+      "description": "Polyrise, Glanze y PC sólido · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/938f7dbe7920c5c9cac33e452d6aa5a8.webp",
+      "colors": [
+        "Terracota",
+        "Negro",
+        "Verde",
+        "Azul",
+        "Rojo",
+        "Café"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 69,
+      "published": true,
+      "featured": true,
+      "presets": [
+        {
+          "label": "Polyrise alveolar 8 mm 2,10 × 11,80 m",
+          "format": "Policarbonato alveolar Polyrise",
+          "thickness": "8",
+          "width": "2.10",
+          "usefulWidth": "",
+          "length": "11.80",
+          "yield": "",
+          "unit": "plancha",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        },
+        {
+          "label": "Polyrise alveolar 8 mm 1,20 × 6,00 m",
+          "format": "Policarbonato alveolar Polyrise",
+          "thickness": "8",
+          "width": "1.20",
+          "usefulWidth": "",
+          "length": "6.00",
+          "yield": "",
+          "unit": "plancha",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        },
+        {
+          "label": "Glanze alveolar 4 mm ancho útil 2,10 m",
+          "format": "Policarbonato alveolar Glanze",
+          "thickness": "4",
+          "width": "",
+          "usefulWidth": "2.10",
+          "length": "",
+          "yield": "",
+          "unit": "plancha",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        },
+        {
+          "label": "Glanze alveolar 6 mm ancho útil 2,10 m",
+          "format": "Policarbonato alveolar Glanze",
+          "thickness": "6",
+          "width": "",
+          "usefulWidth": "2.10",
+          "length": "",
+          "yield": "",
+          "unit": "plancha",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        },
+        {
+          "label": "Glanze alveolar 8 mm ancho útil 2,10 m",
+          "format": "Policarbonato alveolar Glanze",
+          "thickness": "8",
+          "width": "",
+          "usefulWidth": "2.10",
+          "length": "",
+          "yield": "",
+          "unit": "plancha",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        },
+        {
+          "label": "Glanze alveolar 10 mm ancho útil 2,10 m",
+          "format": "Policarbonato alveolar Glanze",
+          "thickness": "10",
+          "width": "",
+          "usefulWidth": "2.10",
+          "length": "",
+          "yield": "",
+          "unit": "plancha",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "name": "Teja cresta alta 1080",
+      "category": "Cubiertas",
+      "subcategory": "cresta",
+      "description": "2,0 mm · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/2fce82ca6c22e21c2002d61743580fa0.webp",
+      "colors": [
+        "Terracota",
+        "Negro",
+        "Verde",
+        "Azul",
+        "Rojo",
+        "Café"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 31,
+      "published": true,
+      "featured": true,
+      "presets": [
+        {
+          "label": "Teja cresta 1080 ASA PVC 2,0 mm",
+          "format": "Teja cresta alta",
+          "thickness": "2",
+          "width": "1.08",
+          "usefulWidth": "1.005",
+          "length": "",
+          "yield": "",
+          "unit": "plancha",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "name": "Otras cubiertas",
+      "category": "Cubiertas",
+      "subcategory": "otros",
+      "description": "Consultar variantes y accesorios · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/b7423e50c0856f5c450cd249c58ab592.webp",
+      "colors": [
+        "Terracota",
+        "Negro",
+        "Verde",
+        "Azul",
+        "Rojo",
+        "Café"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 0,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Otras cubiertas",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Terracota",
+            "Negro",
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Café"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 200,
+      "name": "Cielo raso PVC",
+      "category": "Acabados",
+      "subcategory": "cielo",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/0ec30a6033fcca41de8003bd259f434f.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 14.5,
+      "published": true,
+      "featured": true,
+      "presets": [
+        {
+          "label": "Cielo raso PVC 8 mm · 0,25 × 5,95 m",
+          "format": "Lama de cielo raso PVC",
+          "thickness": "8",
+          "width": "0.25",
+          "usefulWidth": "0.25",
+          "length": "5.95",
+          "yield": "",
+          "unit": "lama",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 201,
+      "name": "Wall panels WPC",
+      "category": "Acabados",
+      "subcategory": "wall",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/41b874016847d40003c2f2aca85dcce2.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 17.9,
+      "published": true,
+      "featured": true,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Wall panels WPC",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 202,
+      "name": "Alucobond / ACP",
+      "category": "Acabados",
+      "subcategory": "acp",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/59de348a069860c0705c31e367ca87fc.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 9.85,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Alucobond / ACP",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 203,
+      "name": "Pisos SPC",
+      "category": "Acabados",
+      "subcategory": "spc",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/2581d6444486bc537667bc68f83e6709.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 42.3,
+      "published": true,
+      "featured": true,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Pisos SPC",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 204,
+      "name": "Barrederas",
+      "category": "Acabados",
+      "subcategory": "barrederas",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/fd2c405e47fba1a97054ee439921740b.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 12.2,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Barrederas",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 205,
+      "name": "Cornisas",
+      "category": "Acabados",
+      "subcategory": "cornisas",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/2ca7f04076bcddbcf79ae7b0878e4f48.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 8.9,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Cornisas",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 220,
+      "name": "Herramientas eléctricas",
+      "category": "Herramientas",
+      "subcategory": "electricas",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/81fc97e49cff3e0f9067146d21fa3863.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 49,
+      "published": true,
+      "featured": true,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Herramientas eléctricas",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 221,
+      "name": "Herramientas manuales",
+      "category": "Herramientas",
+      "subcategory": "manuales",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/2db54a3a7551757007df3fec8ec557b5.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 25.5,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Herramientas manuales",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 240,
+      "name": "Mezcladoras de concreto",
+      "category": "Maquinarias",
+      "subcategory": "mezcladoras",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/f25d93b275a9db1fb6bf961f5c57ce26.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 199,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Mezcladoras de concreto",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 241,
+      "name": "Compactadoras",
+      "category": "Maquinarias",
+      "subcategory": "compactadoras",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/41e28253061094e0f7165789c787d310.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 489,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Compactadoras",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 242,
+      "name": "Cortadoras de piso y cerámica",
+      "category": "Maquinarias",
+      "subcategory": "cortadoras",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/79433f2519931eb83036a9983fd512f3.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 280,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Cortadoras de piso y cerámica",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 243,
+      "name": "Generadores eléctricos",
+      "category": "Maquinarias",
+      "subcategory": "generadores",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/22bcf504c331cc90879b9001a5660266.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 725,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Generadores eléctricos",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 244,
+      "name": "Equipos de elevación",
+      "category": "Maquinarias",
+      "subcategory": "elevacion",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/219810e5db913c76739b300fa1969ae4.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 1130,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Equipos de elevación",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 245,
+      "name": "Otras maquinarias",
+      "category": "Maquinarias",
+      "subcategory": "otras-maquinas",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/0c7ac6ebefb23c97a38fe163f71a28d1.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 97.8,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Otras maquinarias",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 260,
+      "name": "Perfiles y uniones",
+      "category": "Accesorios",
+      "subcategory": "perfiles",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/96e060031a354e7cb9a69ada4af62d27.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 4.1,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Perfiles y uniones",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 261,
+      "name": "Tornillos y fijaciones",
+      "category": "Accesorios",
+      "subcategory": "fijaciones",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/93d2fa6d47ffb0a57d14af2581daaefa.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 0.15,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Tornillos y fijaciones",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 262,
+      "name": "Cumbreras y remates",
+      "category": "Accesorios",
+      "subcategory": "remates",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/9fe07fbc20c71782d17e7459cf1837ec.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 9.5,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Cumbreras y remates",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 280,
+      "name": "Estructuras y soportes",
+      "category": "Materiales",
+      "subcategory": "estructuras",
+      "description": "Consultar presentación, medidas y disponibilidad · DATOS DEMOSTRATIVOS, ficha y precio ficticios.",
+      "image": "/uploads/products/abe736a1382d3dd04591a698de027de2.webp",
+      "colors": [
+        "Blanco",
+        "Gris",
+        "Negro",
+        "Madera"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 22,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Presentación por confirmar",
+          "format": "Estructuras y soportes",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "",
+          "source": "MODELO FICTICIO / DEMO · parámetros comerciales a validar antes de publicar",
+          "colors": [
+            "Blanco",
+            "Gris",
+            "Negro",
+            "Madera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 310,
+      "name": "Vehículo utilitario para obra (ejemplo)",
+      "category": "Vehículos",
+      "subcategory": "utilitarios",
+      "description": "Modelo ficticio para comprobar la creación de categorías y su aparición en catálogo digital. Sin venta real.",
+      "image": "/uploads/products/a01d0ec9ab131f927c223754a4ddbfbd.webp",
+      "colors": [
+        "Blanco",
+        "Gris"
+      ],
+      "gallery": [],
+      "imageSets": {},
+      "price": 0,
+      "published": true,
+      "featured": false,
+      "presets": [
+        {
+          "label": "Versión de demostración",
+          "format": "Vehículo utilitario DEMO",
+          "thickness": "",
+          "width": "",
+          "usefulWidth": "",
+          "length": "",
+          "yield": "",
+          "unit": "unidad",
+          "model": "FICTICIO",
+          "source": "Ficha ficticia, sin disponibilidad comercial",
+          "colors": [
+            "Blanco",
+            "Gris"
+          ]
+        }
+      ]
+    }
+  ],
+  "calculator": {
+    "title": "CALCULA",
+    "accent": "TUS MATERIALES Y ACCESORIOS",
+    "description": "Tejas, policarbonato, cielo raso, wall panels, ACP, pisos SPC, barrederas y cornisas.",
+    "button": "ABRIR CALCULADORA →",
+    "defaultWaste": 10,
+    "note": "Las coberturas y accesorios deben verificarse con las fichas técnicas antes de cotizar."
+  },
+  "experience": {
+    "eyebrow": "TU PROYECTO, DE PRINCIPIO A FIN",
+    "title": "UNA TIENDA",
+    "accent": "MÁS INTELIGENTE",
+    "cards": [
+      {
+        "icon": "▦",
+        "title": "01 · Explora el catálogo",
+        "description": "Busca cubiertas, acabados y herramientas, filtra productos y revisa las opciones de tu proyecto.",
+        "button": "VER CATÁLOGO →",
+        "action": "catalogo"
+      },
+      {
+        "icon": "⌗",
+        "title": "02 · Calcula cantidades",
+        "description": "Selecciona el material, ajusta medidas comerciales y prepara un estimado con notas técnicas y accesorios manuales.",
+        "button": "ABRIR CALCULADORA →",
+        "action": "calculadora"
+      },
+      {
+        "icon": "▤",
+        "title": "03 · Prepara tu cotización",
+        "description": "Asigna un nombre al proyecto, revisa cantidades y guarda o imprime un resumen para solicitar confirmación.",
+        "button": "MI COTIZACIÓN →",
+        "action": "cotizar"
+      }
+    ]
+  },
+  "distributors": {
+    "title": "SOLUCIONES PARA",
+    "accent": "DISTRIBUIDORES Y CONSTRUCTORES",
+    "description": "Prepara listas de compra, compara productos y genera un resumen de cotización. En una siguiente etapa se podrán integrar precios por cliente, pagos y gestión de pedidos.",
+    "button": "PREPARAR COTIZACIÓN →"
+  },
+  "reviews": {
+    "eyebrow": "RELACIONES DURADERAS",
+    "title": "Lo que dicen quienes",
+    "accent": "construyen con nosotros",
+    "intro": "Un espacio para compartir experiencias reales de clientes, profesionales y empresas constructoras.",
+    "button": "ESCRIBIR UNA RESEÑA →",
+    "items": []
+  },
+  "social": {
+    "visible": true,
+    "title": "Redes sociales de ejemplo",
+    "description": "El administrador permite agregar enlaces oficiales cuando estén confirmados.",
+    "note": "REDES INACTIVAS DURANTE LA DEMOSTRACIÓN. No se redirige a cuentas de terceros.",
+    "items": [
+      {
+        "name": "Facebook",
+        "url": "https://example.com/facebook-demostracion",
+        "visible": false
+      },
+      {
+        "name": "Instagram",
+        "url": "https://example.com/instagram-demostracion",
+        "visible": false
+      },
+      {
+        "name": "WhatsApp",
+        "url": "https://example.com/whatsapp-demostracion",
+        "visible": false
+      },
+      {
+        "name": "YouTube",
+        "url": "https://example.com/youtube-demostracion",
+        "visible": false
+      },
+      {
+        "name": "TikTok",
+        "url": "https://example.com/tiktok-demostracion",
+        "visible": false
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://example.com/linkedin-demostracion",
+        "visible": false
+      }
+    ],
+    "map": {
+      "visible": false,
+      "title": "Mapa de ejemplo (no es local comercial)",
+      "description": "Solo para simular la zona geográfica. No dirigirse a esta dirección.",
+      "button": "Abrir en Maps ↗",
+      "embedUrl": "",
+      "openUrl": ""
+    }
+  },
+  "whatsapp": {
+    "number": "",
+    "welcome": "Este mensaje es únicamente un ejemplo; habilita WhatsApp al configurar un número oficial.",
+    "visible": false
+  },
+  "footer": {
+    "visible": true,
+    "columnOrder": [
+      "brand",
+      "imports",
+      "location",
+      "support"
+    ],
+    "columnVisible": {
+      "brand": true,
+      "imports": true,
+      "location": true,
+      "support": true
+    },
+    "description": "Portal de práctica con productos, precios, imágenes, direcciones y condiciones ficticios; no procesa pedidos ni ofrece productos.",
+    "company": "Mega Prime Import · SIMULACIÓN",
+    "tag": "TIENDA DEMOSTRATIVA · NO ABIERTA AL PÚBLICO",
+    "disclaimer": "Todos los precios y especificaciones de esta demostración son inventados y no constituyen oferta comercial.",
+    "importsTitle": "LÍNEAS DE IMPORTACIÓN",
+    "imports": [
+      {
+        "text": "Cubiertas PVC / ASA y metálicas",
+        "category": "Cubiertas"
+      },
+      {
+        "text": "Policarbonato alveolar y sólido",
+        "category": "Cubiertas"
+      },
+      {
+        "text": "Cielo raso PVC y wall panels",
+        "category": "Acabados"
+      },
+      {
+        "text": "Pisos SPC y revestimientos",
+        "category": "Acabados"
+      },
+      {
+        "text": "Herramientas de instalación",
+        "category": "Herramientas"
+      },
+      {
+        "text": "Maquinarias para construcción",
+        "category": "Maquinarias"
+      }
+    ],
+    "locationTitle": "DIRECCIÓN FICTICIA",
+    "locationName": "Punto de demostración — no visitable",
+    "location": "Ambato (ejemplo), Ecuador",
+    "address": "AV. EJEMPLO 123 Y CALLE MODELO · DIRECCIÓN FICTICIA, NO EXISTE UN LOCAL AQUÍ",
+    "coverageTitle": "Cobertura y envíos",
+    "coverage": "Cobertura de reparto de prueba, no operativa. Verificar condiciones y direcciones reales antes de activar ventas.",
+    "consultTitle": "Asesoría y cotizaciones",
+    "consult": "La cotización descargada es un ejemplo. Ningún pedido queda confirmado.",
+    "consultButton": "Ver mi cotización →",
+    "supportTitle": "CALIDAD Y SOPORTE",
+    "supportItems": [
+      "Fichas técnicas de productos disponibles según fabricante",
+      "Información de medidas y colores por variante",
+      "Calculadora referencial de materiales",
+      "Solicitud de cotizaciones"
+    ],
+    "warning": "IMÁGENES Y FICHAS ILUSTRATIVAS. Validar con los fabricantes antes de ventas.",
+    "legalLeft": "© 2026 Mega Prime Import · DEMO",
+    "legalRight": "PRECIOS FICTICIOS · SIN VENTAS",
+    "legalNote": "ENTORNO DE PRUEBAS: información ficticia sin servicios comerciales. No ingresar datos personales reales ni realizar pagos.",
+    "email": "correo-de-prueba@megaprimeimport.example",
+    "phone": "000-000-000 · NÚMERO FICTICIO",
+    "hours": "Lunes a viernes, 09:00–17:00 (HORARIO FICTICIO)"
+  },
+  "layout": {
+    "headerLogoHeight": 54,
+    "headerNavGap": 0,
+    "footerColumns": 4,
+    "footerGap": 24,
+    "headerPadding": 17,
+    "heroMinHeight": 520,
+    "productImageHeight": 180,
+    "mapHeight": 230,
+    "footerTopPadding": 32
+  },
+  "design": {
+    "gold": "#e8b94e",
+    "background": "#080d11",
+    "text": "#f6f6f2",
+    "marginCm": 2,
+    "rounded": 12
+  },
+  "catalogPrint": {
+    "coverImage": "/uploads/products/949545785a0538573e753db1e832de95.webp",
+    "showCoverIndex": true,
+    "showDescription": true,
+    "showSequence": true,
+    "coverDisclaimer": "DEMOSTRACIÓN: DATOS FICTICIOS · NO COMERCIALIZABLE",
+    "photoHeightMm": 55,
+    "descriptionLength": 270,
+    "benefitsLimit": 3,
+    "specsLimit": 6,
+    "fontScale": 1,
+    "company": "MEGA PRIME IMPORT · DEMO",
+    "coverKicker": "CATÁLOGO DE PRUEBA · 2026",
+    "coverTitle": "Muestra de",
+    "coverAccent": "productos",
+    "coverEnd": "ficticios",
+    "coverSubtitle": "Muestra A4/A5 para evaluar diseño y comportamiento. Los productos y precios no representan ofertas comerciales.",
+    "coverFooter": "MEGA PRIME IMPORT · SIMULACIÓN",
+    "pageFooter": "DEMO · MEGA PRIME IMPORT",
+    "disclaimer": "Valores y fotografías ficticios. No representa una oferta comercial.",
+    "accent": "#c29b40",
+    "showThumbs": true,
+    "showBenefits": true,
+    "showTechnicalSpecs": true,
+    "showColors": true
+  },
+  "seo": {
+    "title": "DEMO · Mega Prime Import | Tienda de pruebas",
+    "description": "Versión de ensayo de Mega Prime Import. Productos, precios y contacto ficticios; sin ventas al público.",
+    "indexable": false
+  },
+  "technicalProfiles": [
+    {
+      "id": "espanola",
+      "name": "Teja española PVC/ASA",
+      "totalWidth": 1.05,
+      "usefulWidth": 0.96,
+      "lap": 0.219,
+      "lengths": "7.227; 6.570; 6.132; 5.475; 5.037; 4.599; 4.161; 3.730; 3.066; 2.680; 2.409",
+      "source": "Medidas referenciales aportadas por usuario; confirmar con fabricante",
+      "verified": false
+    },
+    {
+      "id": "roma1050",
+      "name": "Roma 1050",
+      "totalWidth": 1.05,
+      "usefulWidth": 0.95,
+      "lap": 0.328,
+      "lengths": "7.216; 6.232; 5.248; 4.264; 3.608; 3.280; 2.624",
+      "source": "Medidas referenciales aportadas por usuario; confirmar con fabricante",
+      "verified": false
+    },
+    {
+      "id": "cresta1080",
+      "name": "Cresta Alta 1080",
+      "totalWidth": 1.08,
+      "usefulWidth": 1.005,
+      "lap": "",
+      "lengths": "",
+      "source": "Faltan largos y traslape confirmado",
+      "verified": false
+    },
+    {
+      "id": "t1130",
+      "name": "Cresta Alta T1130",
+      "totalWidth": 1.13,
+      "usefulWidth": 1.05,
+      "lap": "",
+      "lengths": "",
+      "source": "Unidad del traslape pendiente de aclaración",
+      "verified": false
+    }
+  ],
+  "customBlocks": [
+    {
+      "type": "cta",
+      "after": "beneficios",
+      "title": "Versión de prueba · contenido ilustrativo",
+      "body": "Esta página es una simulación. Todos los precios, fotografías, ubicaciones y productos de la muestra son ficticios. El administrador puede cambiar cada contenido antes de publicar.",
+      "image": "",
+      "alt": "",
+      "button": "Ver productos ficticios",
+      "url": "#catalogo",
+      "align": "center",
+      "visible": true
+    }
+  ],
+  "sections": [
+    {
+      "key": "inicio",
+      "label": "Portada dinámica",
+      "visible": true
+    },
+    {
+      "key": "beneficios",
+      "label": "Beneficios",
+      "visible": true
+    },
+    {
+      "key": "categorias",
+      "label": "Categorías",
+      "visible": true
+    },
+    {
+      "key": "calculadora",
+      "label": "Calculadora",
+      "visible": true
+    },
+    {
+      "key": "catalogo",
+      "label": "Catálogo",
+      "visible": true
+    },
+    {
+      "key": "experiencia",
+      "label": "Cómo comprar",
+      "visible": true
+    },
+    {
+      "key": "distribuidores",
+      "label": "Distribuidores",
+      "visible": true
+    },
+    {
+      "key": "resenas",
+      "label": "Reseñas",
+      "visible": true
+    }
+  ],
+  "demoMode": true,
+  "quotePrint": {
+    "title": "Solicitud de cotización · DEMO",
+    "subtitle": "Documento de prueba · precios ficticios · no constituye oferta comercial",
+    "sectionTitle": "Productos y cantidades",
+    "footerNote": "Datos ilustrativos: confirmar precios, medidas y existencias antes de cualquier operación.",
+    "legalFooter": "Solicitud de cotización ficticia. No constituye factura, oferta ni pedido válido.",
+    "colors": {
+      "coverBackground": "#10293f",
+      "brand": "#ffffff",
+      "accent": "#e0b443",
+      "subtitle": "#edf3f6",
+      "title": "#18314a",
+      "body": "#223846",
+      "headers": "#ffffff",
+      "tableHeaderBackground": "#173042",
+      "product": "#18314a",
+      "details": "#51606a",
+      "values": "#223846",
+      "total": "#9b7115",
+      "notes": "#5d6970"
+    }
+  }
+}

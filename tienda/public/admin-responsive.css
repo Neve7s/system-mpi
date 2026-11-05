@@ -1,0 +1,57 @@
+/* Administrador V70: paneles utilizables en iPhone, Android y tabletas */
+html,body{max-width:100%;overflow-x:clip}
+.field :is(input,select,textarea){max-width:100%;min-width:0}
+.mpi70-admin-backdrop,.mpi70-sidebar-close,.mpi70-preview-close{display:none}
+@media screen and (max-width:1050px){
+ .editorLayout{min-height:0}
+ .previewPane{min-width:0}
+ .previewView iframe{min-width:0}
+}
+@media screen and (max-width:790px){
+ .adminbar{flex-wrap:wrap;gap:8px;padding:10px 12px;min-height:0;top:0}
+ .adminbar .path{min-width:0;flex:1}
+ .adminbar .path strong{display:block;overflow-wrap:anywhere}
+ .adminbar .toolbar{display:grid;grid-template-columns:1fr 1fr;gap:6px;width:100%;flex-wrap:nowrap}
+ .adminbar .toolbar .btn{white-space:normal;line-height:1.2;min-height:44px;padding:9px 7px;font-size:12px}
+ .mobile-menu{min-width:44px;min-height:44px;display:grid;place-items:center;flex:none}
+ .sidebar{width:min(85vw,305px);max-height:100dvh;overflow-y:auto;z-index:110;padding:14px 10px 15px}
+ .sidebar .brandline{padding-bottom:12px}
+ .sidebar #adminNav button{min-height:44px;font-size:13px}
+ .mpi70-sidebar-close{display:block;margin:0 6px 8px auto;border:1px solid #d5b15e;color:#ffe6a2;background:#23333b;padding:9px 12px;border-radius:9px;min-height:44px}
+ .mpi70-admin-backdrop{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.7);display:none}
+ body.mpi70-sidebar-open .mpi70-admin-backdrop{display:block}
+ body.mpi70-sidebar-open{overflow:hidden}
+ .safeBanner{padding:10px 13px;font-size:12px}
+ .editorLayout{height:auto!important;min-height:0!important;display:block!important}
+ .editorContent{padding:16px 11px calc(35px + env(safe-area-inset-bottom,0px))!important;overflow:visible!important;height:auto!important}
+ .panelCard{padding:13px 11px;margin:12px 0}
+ .panelCard h3{font-size:16px}
+ .fieldGrid{grid-template-columns:1fr!important;gap:12px}
+ .field.full{grid-column:auto}
+ .field :is(input,select,textarea){font-size:16px!important;min-height:44px}
+ .field input[type=checkbox]{min-height:20px}
+ .twoCols{grid-template-columns:1fr!important}
+ .itemList{max-height:170px!important}
+ .repeatTitle{align-items:flex-start;flex-wrap:wrap;gap:8px}
+ .recordActions button{min-width:40px;min-height:42px}
+ .repeaterCard{padding:10px}
+ .v55GalleryRow{flex-wrap:wrap}
+ .v55GalleryRow .recordActions{width:100%;justify-content:flex-end}
+ .previewPane{display:none!important}
+ .editorLayout.mpi70-preview-open:not(.noPreview) .previewPane{display:flex!important;position:fixed;inset:0;z-index:120;height:100dvh!important;max-height:100dvh;border-left:0;background:#0d171e}
+ .editorLayout.mpi70-preview-open .previewTop{padding:9px;flex-wrap:wrap;gap:7px}
+ .editorLayout.mpi70-preview-open .previewTop strong{flex:1;min-width:100px}
+ .editorLayout.mpi70-preview-open .previewView{min-height:0;padding:9px}
+ .editorLayout.mpi70-preview-open .previewView iframe{max-width:100%;height:100%}
+ .mpi70-preview-close{display:inline-flex;min-height:44px;align-items:center;justify-content:center;border:1px solid #e6be62;background:#23323c;color:#ffe4a7;border-radius:8px;padding:8px 12px;font-weight:750;font-size:12px}
+ .previewTop .device{min-width:40px;min-height:42px}
+ .previewTop #previewRefresh{min-height:42px}
+ .toast{max-width:calc(100vw - 20px);left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+}
+@media screen and (min-width:791px){ .mpi70-preview-close{display:none!important} }
+@media screen and (max-width:390px){
+ .previewTop .devButtons{order:3;width:100%;justify-content:center}
+ .previewTop .devButtons button{flex:1}
+ .panel>h2{font-size:20px}
+ .btn.tiny{padding:9px}
+}

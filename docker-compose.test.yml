@@ -1,0 +1,61 @@
+# SOLO PARA PRUEBAS LOCALES. No usar en producción.
+# Levanta MariaDB y la plataforma en http://127.0.0.1:8080.
+#
+#   docker compose -f docker-compose.test.yml up -d --build
+#   curl -H "Host: tienda.test" http://127.0.0.1:8080/
+#
+# Con el usuario "mpi" (permisos solo sobre la base mpi) se prueba el modo
+# single/auto. Para probar tres bases separadas, cambia MARIADB_URL a
+# mysql://root:root@mariadb:3306/mpi y MPI_DB_MODE=separate.
+
+services:
+  mariadb:
+    image: mariadb:11
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_ROOT_HOST: "%"
+      MARIADB_DATABASE: mpi
+      MARIADB_USER: mpi
+      MARIADB_PASSWORD: mpi
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    volumes:
+      - mpitest_mariadb:/var/lib/mysql
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    environment:
+      MARIADB_URL: ${TEST_MARIADB_URL:-mysql://mpi:mpi@mariadb:3306/mpi}
+      MPI_DOMAIN_TIENDA: tienda.test
+      MPI_DOMAIN_ACCESO: acceso.test
+      MPI_DOMAIN_LIQUIDACIONES: liquidaciones.test
+      MPI_DB_MODE: ${TEST_DB_MODE:-auto}
+      MPI_DB_CONNECT_RETRIES: "30"
+      MPI_ADMIN_EMAIL: admin@tienda.test
+      MPI_ADMIN_PASSWORD: AdminTest123456
+      MPI_SEED_ADMIN: "1"
+      MPI_SEED_DEMO: ${TEST_SEED_DEMO:-1}
+      MPI_ENABLE_SSO: ${TEST_ENABLE_SSO:-1}
+      MPI_RUN_MIGRATIONS: "1"
+    volumes:
+      - mpitest_uploads_tienda:/var/www/mpi/tienda/public/uploads
+      - mpitest_uploads_liquidaciones:/var/www/mpi/liquidaciones/public/uploads
+      - mpitest_data:/data
+      - mpitest_sessions:/var/lib/php/sessions
+
+volumes:
+  mpitest_mariadb:
+  mpitest_uploads_tienda:
+  mpitest_uploads_liquidaciones:
+  mpitest_data:
+  mpitest_sessions:

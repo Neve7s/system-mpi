@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mega Prime Import | Administrador visual V93.11</title>
+<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin-responsive.css">
+<link rel="stylesheet" href="admin-enhancements.css?v=93.2">
+<link rel="stylesheet" href="admin-visual.css">
+<script src="calc-rules.js"></script>
+<script src="cms_shared.js"></script>
+<script defer src="admin.js"></script>
+<script defer src="admin-responsive.js"></script>
+<script defer src="admin-enhancements.js?v=93.2"></script>
+</head><body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <button type="button" class="mpi70-sidebar-close" id="mpi70SidebarClose" aria-label="Cerrar menú de administración">✕ Cerrar menú</button>
+    <div class="brandline"><div class="lion"><img src="assets/mpi_logo_megaprime_importaciones.png" alt="León de Mega Prime Import" width="34" height="34" style="display:block;width:34px;height:34px;object-fit:contain" /></div><div><strong>MEGA PRIME <em>IMPORT</em></strong><small>ADMINISTRACIÓN V93.11</small></div></div>
+    <div class="caption">CONTENIDO DE LA TIENDA</div>
+    <nav id="adminNav" aria-label="Secciones del administrador"></nav>
+    <div class="sideFoot"><span class="status-dot"></span> Editor de contenido y diseño visual<br><small>Los cambios solo se publican al guardar.</small></div>
+  </aside>
+  <div class="workspace">
+    <header class="adminbar">
+      <button class="mobile-menu" id="menuToggle" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">☰</button>
+      <div class="path"><small>MEGA PRIME IMPORT / CONTENIDO</small><strong id="pageTitle">Resumen general</strong></div>
+      <div class="toolbar"><form id="mpi85LogoutForm" class="mpi85-logout-form mpi93-logout-priority" method="post" action="admin/index.php" autocomplete="off"><input type="hidden" name="action" value="logout"><input type="hidden" name="csrf" value="__MPI_LOGOUT_CSRF__"><button type="submit" class="btn mpi85-logout-btn" aria-label="Cerrar sesión del administrador" title="Cerrar sesión de forma segura y volver al acceso">⏻ Cerrar sesión</button></form>__MPI_USERS_LINK____MPI_PORTAL_LINK__<a class="btn ghost mpi77-account-link" href="admin/account.php" title="Cambiar usuario, correo o contraseña">🔐 Mi cuenta</a><a class="btn ghost mpi93-store-link" href="index.html" target="_blank" rel="noopener noreferrer" title="Abrir la tienda web pública en otra pestaña. Los cambios se muestran después de guardarlos.">🌐 Tienda web</a><span class="unsaved" id="unsavedLabel">Sin cambios</span><button id="previewToggle" class="btn ghost" aria-controls="previewPane">👁 Vista previa</button><button id="saveBtn" class="btn primary">Guardar cambios</button></div>
+    </header>
+    <div class="safeBanner"><strong>Panel protegido:</strong> contenido compartido con la tienda y el catálogo A4/A5, guardado con historial en MariaDB. Las reglas de cantidades pueden editarse desde Fórmulas y textos; requieren revisión técnica y aprobación del administrador.</div>
+    <div class="editorLayout" id="editorLayout">
+      <main class="editorContent" id="editorContent"><div id="panel" class="panel"></div></main>
+      <div class="previewPane" id="previewPane" aria-label="Vista previa de la tienda">
+        <div class="previewTop"><strong>Vista previa en vivo</strong><div class="devButtons"><button class="device active" data-size="wide" title="Computadora">▣</button><button class="device" data-size="tablet" title="Tableta">▥</button><button class="device" data-size="mobile" title="Celular">▯</button></div><button class="btn tiny ghost" id="previewRefresh" aria-label="Actualizar vista previa">↻</button><button type="button" class="mpi70-preview-close" id="mpi70PreviewClose">✕ Cerrar vista previa</button></div>
+        <div class="previewView"><iframe id="liveFrame" title="Vista previa de la tienda" src="index.html" loading="eager"></iframe></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="toast" role="status" class="toast" aria-live="polite"></div>
+<input type="file" id="jsonUpload" accept="application/json,.json" hidden>
+<div id="mpi70AdminBackdrop" class="mpi70-admin-backdrop" aria-hidden="true"></div>
+</body></html>

@@ -1,0 +1,52 @@
+# Secretos y configuración local (nunca subir al repositorio)
+.env
+.env.*
+!.env.example
+*.local.php
+acceso/private/config.php
+liquidaciones/private/config.php
+liquidaciones/private/sso.config.php
+tienda/app/sso.config.php
+
+# Datos generados en ejecución local (Docker usa volúmenes)
+data/
+docker-compose.override.yml
+
+# Subidas generadas por la aplicación (las imágenes DEMO de products/ sí se versionan)
+tienda/public/uploads/media/*
+!tienda/public/uploads/media/.htaccess
+!tienda/public/uploads/media/index.html
+liquidaciones/public/uploads/*
+!liquidaciones/public/uploads/.htaccess
+
+# Resultados de pruebas locales
+tienda/tests/results/*
+!tienda/tests/results/.keep
+__pycache__/
+*.pyc
+
+# Documentación legacy y evidencias que se conservan fuera del repo de despliegue
+ACEPTACION_V1_3.md
+INSTALACION_V1_3.md
+README_ARRANQUE.txt
+docs/ACEPTACION_V1_3.md
+docs/AUDITORIA_V1_3.md
+docs/INSTALACION_V1_3.md
+MANIFIESTO_SHA256_V1_3.json
+tienda/MANIFIESTO_V93_11.json
+liquidaciones/vista-local/
+pruebas/resultados_v1_3/
+tienda/tests/
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Copias y artefactos
+*.bak
+*.old
+*.sql.gz
+*.zip

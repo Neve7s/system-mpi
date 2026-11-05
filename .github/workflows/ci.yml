@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  docker:
+    name: Build, lint y validación de Compose
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validar docker-compose.yml
+        env:
+          MARIADB_URL: mysql://user:password@127.0.0.1:3306/mpi
+          MPI_DOMAIN_TIENDA: example.com
+          MPI_DOMAIN_ACCESO: acceso.example.com
+          MPI_DOMAIN_LIQUIDACIONES: liquidaciones.example.com
+        run: docker compose config --quiet
+
+      - name: Construir imagen
+        run: docker build --tag mpi-ecuador:ci .
+
+      - name: Lint de todos los archivos PHP
+        run: |
+          docker run --rm --entrypoint sh mpi-ecuador:ci -c '
+            set -e
+            find /var/www/mpi -type f -name "*.php" -print0 \
+              | xargs -0 -n1 php -l > /dev/null
+            echo "PHP lint OK"
+          '
+
+      - name: Validar sintaxis del entrypoint
+        run: |
+          docker run --rm --entrypoint bash mpi-ecuador:ci -n /usr/local/bin/mpi-entrypoint.sh
+          echo "Entrypoint OK"

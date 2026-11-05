@@ -1,0 +1,101 @@
+/* Mega Prime Import V70 · Mejora progresiva móvil/tablet, sin alterar fórmulas */
+@media screen {
+  html { overflow-x:clip; }
+  .wrap, .corp-footer .wrap, .mpi42-layout, .mpi45-shell, .mpi49-layout { min-width:0; }
+  :is(.mpi42-scroller,.mpi45-table-scroll,.mpi49-table-scroll,.mpi49-table-card,.cart-list) { max-width:100%; }
+  :is(.mpi42-scroller,.mpi45-table-scroll,.mpi49-table-scroll) { overflow-x:auto; overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
+  :is(#detailModal,#calcModal,#cartModal) :is(input,select,textarea) { max-width:100%; }
+  .mpi70-scroll-hint { display:none; margin:7px 0 5px; font-size:12px; color:#ffe2a2; }
+  .mpi70-mobile-actions { display:none; }
+  .mpi70-nav-hint { display:none; }
+}
+@media screen and (max-width:1024px){
+ .hero-split { gap:clamp(14px,3vw,28px); }
+ .corp-columns,.categories,.products:not(.product-carousel) { min-width:0; }
+ #calcModal .mpi49-layout { grid-template-columns:minmax(0,1fr)!important; }
+ #calcModal .mpi45-shell { grid-template-columns:minmax(0,1fr)!important; }
+ #calcModal .mpi49-card { min-width:0; }
+ #calcModal .mpi49-table-scroll { width:100%; }
+}
+@media screen and (max-width:760px){
+ :root { --mpi70-safe-bottom:env(safe-area-inset-bottom,0px); }
+ body { padding-bottom:calc(77px + var(--mpi70-safe-bottom)); }
+ body.mpi70-overlay-open { padding-bottom:0; }
+ .wrap { padding-left:clamp(12px,4vw,20px)!important; padding-right:clamp(12px,4vw,20px)!important; }
+ .head .wrap { gap:10px!important; }
+ .brand { font-size:clamp(17px,4.5vw,21px)!important; white-space:normal; }
+ .head :is(.search,.search input) { min-width:0; }
+ .nav .wrap { overflow-x:auto!important; overflow-y:hidden; flex-wrap:nowrap!important; scroll-snap-type:x proximity; overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
+ .nav a { display:inline-flex; align-items:center; min-height:45px; flex:none; scroll-snap-align:start; }
+ .mpi70-nav-hint { display:block; font-size:11px; color:#e6c983; padding:5px 13px 6px; background:#121d23; border-bottom:1px solid #43535b; text-align:center; }
+ .products.product-carousel { scroll-padding-inline:12px; }
+ .categories { grid-template-columns:repeat(2,minmax(0,1fr))!important; }
+ .category { min-width:0; }
+ .category .info { overflow-wrap:anywhere; }
+ .mpi70-mobile-actions { position:fixed; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); align-items:stretch; gap:4px; bottom:0; left:0; right:0; z-index:65; padding:8px max(7px,env(safe-area-inset-right,0px)) calc(8px + var(--mpi70-safe-bottom)) max(7px,env(safe-area-inset-left,0px)); background:rgba(8,17,22,.97); border-top:1px solid #b39145; box-shadow:0 -8px 25px #0008; }
+ .mpi70-mobile-actions button { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; border:1px solid transparent; border-radius:9px; background:#182a32; color:#fff; min-height:51px; padding:5px 2px; font-weight:750; font-size:11px; line-height:1.15; }
+ .mpi70-mobile-actions button .mpi70-action-icon { font-size:19px; color:#efc76d; line-height:1.1; }
+ .mpi70-mobile-actions button:focus-visible { outline:3px solid #ffdc7d; outline-offset:1px; }
+ body.mpi70-overlay-open #mpi70MobileActions { display:none!important; }
+ .mpi70-scroll-hint { display:block; }
+ #calcModal,#cartModal,#detailModal { padding:0!important; align-items:stretch!important; }
+ #calcModal>.dialog,#cartModal>.dialog,#detailModal>.dialog { width:100%!important; max-width:none!important; height:100dvh!important; max-height:100dvh!important; min-height:0!important; margin:0!important; border-radius:0!important; border-left:0!important; border-right:0!important; overflow-x:hidden; overscroll-behavior:contain; }
+ #cartModal>.dialog { padding:16px 14px calc(22px + var(--mpi70-safe-bottom))!important; overflow-y:auto!important; }
+ #cartModal .mpi69-cart-header { top:-16px!important; padding:12px 0!important; margin-bottom:12px; }
+ #cartModal .mpi69-cart-header h2 { font-size:clamp(21px,5.6vw,29px)!important; }
+ #cartModal .mpi69-cart-close { min-height:44px; min-width:44px; gap:4px; padding:8px 10px; }
+ #cartModal .quote-fields { grid-template-columns:minmax(0,1fr)!important; gap:9px; }
+ #cartModal :is(input,select,textarea) { font-size:16px!important; min-height:44px; }
+ #cartModal :is(.modal-actions,.quote-actions) button { min-height:44px; }
+ #calcModal .mpi42-dialog { height:100dvh!important; max-height:100dvh!important; overflow-x:hidden!important; }
+ #calcModal .mpi42-header { top:0; padding:10px 12px!important; gap:8px; }
+ #calcModal .mpi42-header h2 { font-size:clamp(17px,4.9vw,23px)!important; line-height:1.15; }
+ #calcModal .mpi42-header .close { min-width:44px; min-height:44px; padding:9px!important; font-size:11px!important; }
+ #calcModal .mpi46-material-switch { padding:10px 12px; }
+ #calcModal .mpi42-panel,#calcModal .mpi45-card,#calcModal .mpi49-card { min-width:0; }
+ #calcModal :is(input,select,textarea) { font-size:16px!important; min-height:44px; }
+ #calcModal .mpi49-fields { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ #calcModal .mpi49-field { font-size:12px; }
+ #calcModal .mpi49-actions button { min-height:44px; }
+ #calcModal .mpi42-footer,#calcModal .mpi45-quote-foot { padding-bottom:calc(9px + var(--mpi70-safe-bottom))!important; }
+ #calcModal .mpi45-grid.four { grid-template-columns:repeat(2,minmax(0,1fr))!important; }
+ #detailModal .detail-dialog { height:100dvh!important; max-height:100dvh!important; }
+ #detailModal .detail-mobile-tabs button { min-height:44px; }
+ #detailModal :is(input,select,textarea) { font-size:16px!important; min-height:44px; }
+ #detailModal .detail-config-column .detail-action button { min-height:44px; }
+ #mpiDigitalViewer { height:100dvh; max-height:100dvh; }
+ #mpiDigitalViewer .mpi-digital-viewer-head { padding:9px 12px; gap:8px; }
+ #mpiDigitalViewer .mpi-digital-viewer-head span { font-size:11px; }
+ #mpiDigitalViewer .mpi-digital-viewer-head b { font-size:12px; }
+ #mpiDigitalViewer #mpiDigitalClose { min-height:44px; padding:9px; font-size:11px; flex:0 0 auto; }
+ #mpiDigitalViewer iframe { min-height:0; }
+ .social-map,.social-map-card { max-width:100%; }
+ .social-map-frame { max-width:100%; }
+}
+@media screen and (max-width:560px){
+ #calcModal .mpi49-fields { grid-template-columns:minmax(0,1fr)!important; }
+ #calcModal .mpi49-field.wide { grid-column:auto!important; }
+ #calcModal .mpi45-grid.two { grid-template-columns:minmax(0,1fr)!important; }
+ #calcModal .mpi45-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ #calcModal .mpi45-field.wide { grid-column:1/-1; }
+ #calcModal .mpi49-actions { flex-direction:column; }
+ #calcModal .mpi49-actions button { width:100%; }
+ #detailModal .detail-mobile-tabs { gap:4px; padding:6px; }
+ #detailModal .detail-mobile-tabs button { font-size:11px; padding:9px 4px; }
+ #mpiDigitalViewer .mpi-digital-viewer-head div span { display:none; }
+ .hero-carousel { min-height:0!important; }
+ .hero-copy h1 { overflow-wrap:break-word; }
+}
+@media screen and (max-width:360px){
+ .mpi70-mobile-actions button { font-size:10px; }
+ #calcModal .mpi45-grid { grid-template-columns:minmax(0,1fr)!important; }
+ #calcModal .mpi42-fields { grid-template-columns:minmax(0,1fr)!important; }
+ #cartModal .mpi69-cart-close span:last-child { display:none; }
+}
+@media screen and (max-width:900px) and (orientation:landscape){
+ #calcModal .mpi42-dialog,#cartModal>.dialog,#detailModal>.dialog { max-height:100dvh!important; }
+ #calcModal .mpi42-header { padding:7px 12px!important; }
+}
+@media (prefers-reduced-motion:reduce){
+ .mpi70-mobile-actions *, .nav .wrap { scroll-behavior:auto!important; transition:none!important; }
+}

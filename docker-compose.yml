@@ -1,0 +1,74 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    expose:
+      - "80"
+    environment:
+      # Conexión a la MariaDB existente. En Coolify configúrala en el recurso.
+      MARIADB_URL: ${MARIADB_URL:-}
+
+      # Dominios canónicos (sin https:// ni barra final).
+      MPI_DOMAIN_TIENDA: ${MPI_DOMAIN_TIENDA:-megaprimeimport.com}
+      MPI_DOMAIN_ACCESO: ${MPI_DOMAIN_ACCESO:-acceso.megaprimeimport.com}
+      MPI_DOMAIN_LIQUIDACIONES: ${MPI_DOMAIN_LIQUIDACIONES:-liquidaciones.megaprimeimport.com}
+
+      # Bases: auto intenta 3 y cae a 1 si no hay permisos.
+      MPI_DB_MODE: ${MPI_DB_MODE:-auto}
+      MPI_DB_PREFIX: ${MPI_DB_PREFIX:-mpi}
+      MPI_DB_TIENDA: ${MPI_DB_TIENDA:-}
+      MPI_DB_IDENTIDAD: ${MPI_DB_IDENTIDAD:-}
+      MPI_DB_LIQUIDACIONES: ${MPI_DB_LIQUIDACIONES:-}
+      MPI_DB_USER_TIENDA: ${MPI_DB_USER_TIENDA:-}
+      MPI_DB_PASSWORD_TIENDA: ${MPI_DB_PASSWORD_TIENDA:-}
+      MPI_DB_USER_IDENTIDAD: ${MPI_DB_USER_IDENTIDAD:-}
+      MPI_DB_PASSWORD_IDENTIDAD: ${MPI_DB_PASSWORD_IDENTIDAD:-}
+      MPI_DB_USER_LIQUIDACIONES: ${MPI_DB_USER_LIQUIDACIONES:-}
+      MPI_DB_PASSWORD_LIQUIDACIONES: ${MPI_DB_PASSWORD_LIQUIDACIONES:-}
+      MPI_DB_CONNECT_RETRIES: ${MPI_DB_CONNECT_RETRIES:-30}
+
+      # Clave estable y SSO.
+      MPI_APP_KEY: ${MPI_APP_KEY:-}
+      MPI_ENABLE_SSO: ${MPI_ENABLE_SSO:-1}
+      MPI_SSO_SECRET_TIENDA: ${MPI_SSO_SECRET_TIENDA:-}
+      MPI_SSO_SECRET_LIQUIDACIONES: ${MPI_SSO_SECRET_LIQUIDACIONES:-}
+
+      # Primer administrador (solo se usa si admin_users está vacío).
+      MPI_ADMIN_EMAIL: ${MPI_ADMIN_EMAIL:-}
+      MPI_ADMIN_USERNAME: ${MPI_ADMIN_USERNAME:-admin}
+      MPI_ADMIN_PASSWORD: ${MPI_ADMIN_PASSWORD:-}
+      MPI_SEED_ADMIN: ${MPI_SEED_ADMIN:-1}
+
+      # Datos DEMO y migraciones.
+      MPI_SEED_DEMO: ${MPI_SEED_DEMO:-1}
+      MP_ALLOW_DEMO_PUBLIC: ${MP_ALLOW_DEMO_PUBLIC:-}
+      MPI_RUN_MIGRATIONS: ${MPI_RUN_MIGRATIONS:-1}
+
+      # Recuperación de contraseña por correo (opcional; requiere MTA en el host).
+      MP_PUBLIC_BASE_URL: ${MP_PUBLIC_BASE_URL:-}
+      MP_RESET_FROM: ${MP_RESET_FROM:-}
+    extra_hosts:
+      # Permite que el SSO servidor-a-servidor llegue a Traefik sin depender
+      # del hairpin NAT del VPS. Si usas otro proxy, puedes quitar este bloque.
+      - "${MPI_DOMAIN_TIENDA:-megaprimeimport.com}:host-gateway"
+      - "${MPI_DOMAIN_ACCESO:-acceso.megaprimeimport.com}:host-gateway"
+      - "${MPI_DOMAIN_LIQUIDACIONES:-liquidaciones.megaprimeimport.com}:host-gateway"
+    volumes:
+      - mpi_uploads_tienda:/var/www/mpi/tienda/public/uploads
+      - mpi_uploads_liquidaciones:/var/www/mpi/liquidaciones/public/uploads
+      - mpi_data:/data
+      - mpi_sessions:/var/lib/php/sessions
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 90s
+
+volumes:
+  mpi_uploads_tienda:
+  mpi_uploads_liquidaciones:
+  mpi_data:
+  mpi_sessions:

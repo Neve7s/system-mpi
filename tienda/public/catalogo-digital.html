@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Mega Prime Import · Catálogo digital</title>
+<style>
+:root{--bg:#090c10;--bg2:#0f1419;--panel:#121a21;--panel2:#1a232c;--gold:#e0b84f;--gold2:#c99b2e;--line:#2e3942;--text:#f4f0ea;--muted:#aeb7bf;--green:#1fa971;--red:#cf3131;--shadow:0 22px 60px rgba(0,0,0,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at top,#171717 0,#0a0d11 45%,#080a0d 100%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif}img{max-width:100%;display:block}button,input{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}
+.wrap{max-width:1320px;margin:auto;padding:0 24px}
+.topbar{border-bottom:1px solid rgba(224,184,79,.18);background:rgba(9,12,16,.75);backdrop-filter:blur(8px);position:sticky;top:0;z-index:20}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 24px}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.brand img{width:190px;max-width:42vw;height:auto;object-fit:contain}
+.brand-text{display:none}
+.top-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+.mini-btn{padding:10px 14px;border-radius:999px;border:1px solid rgba(224,184,79,.4);color:#f7f3ea;background:rgba(255,255,255,.03);font-weight:700;font-size:13px;letter-spacing:.04em}
+.mini-btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111;border-color:transparent}
+.hero{padding:42px 0 30px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+.hero-copy{padding:10px 0}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:999px;border:1px solid rgba(224,184,79,.35);color:var(--gold);letter-spacing:.22em;font-size:12px;font-weight:800;text-transform:uppercase}
+.hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(48px,7vw,86px);line-height:.95;margin:22px 0 18px;letter-spacing:-.03em}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:clamp(17px,2vw,24px);line-height:1.6;color:#c7ced4;max-width:760px;margin:0 0 26px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+.btn{padding:18px 24px;border-radius:16px;border:0;font-weight:900;font-size:15px;display:inline-flex;align-items:center;justify-content:center;gap:10px;box-shadow:var(--shadow)}
+.btn.gold{background:linear-gradient(135deg,#e4be56,#b88a25);color:#141414}
+.btn.red{background:linear-gradient(135deg,#ef4545,#b41616);color:#fff}
+.btn.green{background:linear-gradient(135deg,#2dcf8b,#119868);color:#fff}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:760px}
+.stat{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(224,184,79,.14);border-radius:18px;padding:18px 18px 15px}
+.stat strong{display:block;font-size:26px;color:var(--gold);margin-bottom:6px}
+.stat span{font-size:13px;color:var(--muted);line-height:1.5}
+.hero-panel{background:linear-gradient(160deg,#11181e,#0c1217 50%,#101820);border:1px solid rgba(224,184,79,.18);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+.hero-media{position:relative;aspect-ratio:4/3;overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:auto 0 0 0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.82));padding:24px}
+.hero-overlay .tag{display:inline-flex;padding:7px 12px;border-radius:999px;background:rgba(224,184,79,.18);border:1px solid rgba(224,184,79,.3);color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.hero-overlay h3{margin:12px 0 8px;font-size:28px}
+.hero-overlay p{margin:0;color:#d6dde2;line-height:1.55}
+.hero-controls{display:flex;gap:10px;padding:18px 20px;border-top:1px solid rgba(224,184,79,.12)}
+.hero-controls button{flex:1;padding:12px 14px;border-radius:12px;border:1px solid rgba(224,184,79,.25);background:#131b21;color:#fff;font-weight:800}
+.separator{border-top:1px solid rgba(224,184,79,.18);margin:18px 0 26px}
+.catalog-tools{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:18px}
+.catalog-tools .heading h2{margin:0 0 8px;font-size:38px;letter-spacing:-.02em}
+.catalog-tools .heading p{margin:0;color:var(--muted);line-height:1.6;max-width:740px}
+.search-box{display:flex;align-items:center;gap:10px;background:#10171d;border:1px solid #37424b;border-radius:16px;padding:12px 14px;min-width:min(100%,340px)}
+.search-box input{background:transparent;border:0;outline:0;color:#fff;width:100%}
+.filter-row{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 10px}
+.filter-btn{padding:13px 20px;border-radius:999px;border:1px solid rgba(224,184,79,.2);background:#1c2025;color:#afb6bf;font-weight:800;display:inline-flex;gap:10px;align-items:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
+.filter-btn.active{background:linear-gradient(135deg,#dfb64a,#c89b2e);color:#111;border-color:transparent}
+.subfilter-row{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 24px}
+.subfilter-btn{padding:10px 16px;border-radius:999px;border:1px solid #33404a;background:#10171d;color:#ccd4d9;font-weight:700;font-size:13px}
+.subfilter-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(224,184,79,.08)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:linear-gradient(180deg,#1a1a1a,#11171d);border:1px solid rgba(224,184,79,.12);border-radius:26px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.18);display:flex;flex-direction:column;min-height:100%}
+.card-media{position:relative;aspect-ratio:1.28/1;overflow:hidden;background:#0b1015}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.card:hover .card-media img{transform:scale(1.04)}
+.chip{position:absolute;top:16px;left:16px;padding:7px 11px;border-radius:999px;background:rgba(8,11,14,.75);border:1px solid rgba(224,184,79,.24);font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
+.card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card small{color:var(--gold);font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.card h3{margin:0;font-size:29px;line-height:1.08;font-family:Georgia,'Times New Roman',serif}
+.card p{margin:0;color:#c5cdd3;line-height:1.55}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.meta div{background:rgba(255,255,255,.03);border:1px solid rgba(224,184,79,.08);border-radius:14px;padding:10px 12px}
+.meta b{display:block;color:#fff;font-size:12px;margin-bottom:5px}
+.meta span{color:#b5c0c8;font-size:13px;line-height:1.45}
+.colors{display:flex;flex-wrap:wrap;gap:8px}
+.sw{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#111a20;border:1px solid #3b4750;color:#eef2f4;font-size:12px;font-weight:700}
+.dot{width:16px;height:16px;border-radius:50%;border:1px solid rgba(255,255,255,.26)}
+.card-actions{display:grid;grid-template-columns:1.1fr .9fr;gap:10px;margin-top:auto}
+.card-actions button,.card-actions a{padding:13px 16px;border-radius:14px;border:1px solid rgba(224,184,79,.25);background:#121a20;color:#fff;font-weight:800;text-align:center}
+.card-actions .primary{background:linear-gradient(135deg,#dfb64a,#c69a2f);color:#111;border:0}
+.empty{padding:34px 20px;border:1px dashed #46525d;border-radius:20px;text-align:center;color:var(--muted);grid-column:1/-1}
+.cta{margin:40px 0 34px;background:linear-gradient(120deg,#131a20,#10151a 60%,#0e1317);border:1px solid rgba(224,184,79,.18);border-radius:30px;padding:28px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+.cta h3{margin:0 0 10px;font-size:34px}
+.cta p{margin:0;color:#cbd2d7;line-height:1.65}
+.cta ul{margin:16px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px}
+.cta li{color:#e6ebee;font-size:14px}
+.footer{border-top:1px solid rgba(224,184,79,.18);padding:28px 0 36px;margin-top:20px}
+.footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#9faab1}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.68);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+.modal.open{display:flex}
+.sheet{width:min(1120px,100%);max-height:92vh;overflow:auto;background:linear-gradient(180deg,#121920,#0d1318);border:1px solid rgba(224,184,79,.18);border-radius:28px;box-shadow:var(--shadow)}
+.sheet-head{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:22px 24px;border-bottom:1px solid rgba(224,184,79,.12)}
+.sheet-head h3{margin:0;font-size:32px}
+.close{background:#26303a;color:#fff;border:1px solid #4d5c67;border-radius:14px;padding:12px 16px;font-weight:800}
+.sheet-body{display:grid;grid-template-columns:.9fr 1.1fr;gap:26px;padding:24px}
+.sheet-body img{width:100%;border-radius:20px;aspect-ratio:1.1/1;object-fit:cover;background:#0c1115}
+.info-card{background:rgba(255,255,255,.025);border:1px solid rgba(224,184,79,.08);border-radius:20px;padding:18px}
+.info-card h4{margin:0 0 12px;font-size:17px;color:var(--gold)}
+.info-card p,.info-card li{color:#d1d9de;line-height:1.6}
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0}
+.info-grid div{border:1px solid rgba(224,184,79,.08);border-radius:16px;padding:12px;background:#11181e}
+.info-grid b{display:block;font-size:12px;color:#f4f4ef;margin-bottom:6px}
+.info-grid span{font-size:14px;color:#c0c8ce;line-height:1.45}
+.sheet-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.print-only{display:none}
+@media print{body{background:#fff;color:#111}.topbar,.hero-actions,.search-box,.filter-row,.subfilter-row,.card-actions,.cta,.footer,.modal,.hero-controls,.no-print{display:none!important}.hero,.wrap{max-width:none;padding:0}.hero-grid,.grid{display:block}.card{page-break-inside:avoid;margin:0 0 16px;border:1px solid #ccc;background:#fff;color:#111}.card p,.meta span{color:#333}.print-only{display:block}}
+@media(max-width:1080px){.hero-grid,.cta,.sheet-body{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.hero-stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.topbar .wrap{padding:12px 18px}.hero{padding-top:24px}.hero h1{font-size:52px}.catalog-tools .heading h2{font-size:30px}.grid{grid-template-columns:1fr}.hero-stats{grid-template-columns:1fr}.card h3{font-size:24px}.meta,.info-grid,.cta ul,.card-actions{grid-template-columns:1fr}.sheet-head{padding:18px 18px}.sheet-body{padding:18px}.brand img{width:150px}}
+
+
+/* V54: vista editorial paginada A4, aislada del estilo comercial de la tienda. */
+#mpiBookPreview{display:none;position:fixed;inset:0;z-index:4000;background:#181b20;color:#111;font-family:Arial,Helvetica,sans-serif}
+#mpiBookPreview.open{display:flex;flex-direction:column}
+.mpi-book-bar{height:66px;flex-shrink:0;background:#10171e;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px clamp(12px,3vw,32px);border-bottom:1px solid #4c432e;gap:14px}
+.mpi-book-bar strong{font-size:17px;display:block;color:#e5bd54}
+.mpi-book-bar small{font-size:12px;color:#b5c0c7}
+.mpi-book-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mpi-book-actions button{background:#e1b751;color:#111;border:0;border-radius:9px;font-weight:800;padding:11px 16px}
+.mpi-book-actions .mpi-book-back{background:#243039;color:#fff;border:1px solid #53616a}
+.mpi-book-scroll{flex:1;overflow-y:auto;overflow-x:auto;scrollbar-color:#bd9b4b #121920;padding:24px 12px 48px}
+#mpiBookPages{display:flex;flex-direction:column;align-items:center;gap:22px;min-width:0}
+.mpi-book-page{width:210mm;height:297mm;background:#fff;flex:none;box-shadow:0 16px 55px #0009;position:relative;overflow:hidden;padding:15mm 15mm 13mm;display:flex;flex-direction:column;color:#191919;font-size:10.5pt}
+.mpi-book-head{display:flex;justify-content:space-between;align-items:center;gap:10mm;border-bottom:1.1mm solid #c7a347;padding-bottom:6mm;min-height:14mm}
+.mpi-book-wordmark{font-family:Georgia,'Times New Roman',serif;font-size:18pt;font-weight:700;line-height:1.1;color:#141414;letter-spacing:-.45px}
+.mpi-book-wordmark span{color:#c5a348}
+.mpi-book-num{font-family:Arial,sans-serif;font-size:8pt;letter-spacing:2px;font-weight:800;color:#999;white-space:nowrap}
+.mpi-book-lead{margin-top:10mm;display:grid;grid-template-columns:1fr 1.05fr;gap:10mm;align-items:start;min-height:115mm}
+.mpi-book-photo{width:100%;height:91mm;object-fit:contain;border:1px solid #ededed;border-radius:4mm;background:#fafafa}
+.mpi-book-thumbs{display:flex;gap:3mm;margin-top:3mm;height:27mm;align-items:stretch}
+.mpi-book-thumbs img{width:30%;height:100%;object-fit:contain;border:1px solid #eee;border-radius:2mm;background:#fff}
+.mpi-book-image-caption{font-size:7pt;color:#888;margin-top:2.5mm;line-height:1.3}
+.mpi-book-kicker{font-size:8pt;color:#c6a044;letter-spacing:2px;text-transform:uppercase;font-weight:800;margin-bottom:5mm}
+.mpi-book-title{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:23pt;line-height:1.15;letter-spacing:-.5px;margin:0 0 4.5mm;overflow-wrap:anywhere}
+.mpi-book-description{font-size:10.5pt;line-height:1.75;color:#5a5a5a;margin:0 0 5mm;max-height:56mm;overflow:hidden;white-space:pre-line;overflow-wrap:anywhere}
+.mpi-book-color-label{font-size:8pt;letter-spacing:1.2px;text-transform:uppercase;color:#929292;font-weight:800;margin-bottom:3mm}
+.mpi-book-colors{display:flex;flex-wrap:wrap;gap:2mm 4mm;margin-bottom:6mm}
+.mpi-book-color{display:flex;align-items:center;gap:2mm;color:#777;font-size:8.5pt}
+.mpi-book-color-dot{height:5mm;width:5mm;border-radius:50%;border:1px solid #ccc;display:inline-block}
+.mpi-book-benefits{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:3mm}
+.mpi-book-benefits li{position:relative;padding-left:6mm;font-size:9pt;line-height:1.4;color:#444;overflow-wrap:anywhere}
+.mpi-book-benefits li:before{position:absolute;left:0;content:'✓';font-weight:900;color:#c6a044}
+.mpi-book-specs{margin-top:auto;padding-top:5mm}
+.mpi-book-spec-title{background:#151515;color:#dcb34d;font-weight:900;padding:3mm 4mm;letter-spacing:1.2px;text-transform:uppercase;font-size:9pt}
+.mpi-book-spec-row{display:grid;grid-template-columns:40% 60%;font-size:9.1pt;border-bottom:1px solid #ededed;min-height:9mm;align-items:center;padding:1.5mm 3mm;gap:3mm}
+.mpi-book-spec-row:nth-child(odd){background:#f6f6f6}
+.mpi-book-spec-row strong{color:#b79842;font-weight:800}
+.mpi-book-spec-row span{overflow-wrap:anywhere;color:#474747}
+.mpi-book-foot{border-top:1px solid #ddd;padding-top:3mm;margin-top:4mm;display:flex;align-items:center;justify-content:space-between;gap:5mm;font-size:7.8pt;color:#888}
+.mpi-book-cover{justify-content:space-between;background:linear-gradient(148deg,#fff 0%,#fff 64%,#f4f0e8 100%)}
+.mpi-book-cover .mpi-book-cover-main{margin:auto 0;display:grid;gap:6mm;align-content:center}
+.mpi-book-cover-kicker{letter-spacing:4px;text-transform:uppercase;color:#b99940;font-size:10pt;font-weight:900}
+.mpi-book-cover-title{font-family:Georgia,'Times New Roman',serif;font-size:49pt;line-height:.98;letter-spacing:-2px;font-weight:700;margin:0;color:#161616}
+.mpi-book-cover-title em{color:#c29b40;font-style:normal}
+.mpi-book-cover-subtitle{font-size:12pt;color:#656565;line-height:1.65;max-width:145mm}
+.mpi-book-cover-photo{border-radius:5mm;height:86mm;width:100%;object-fit:cover;background:#e8e7e3}
+.mpi-book-cover-pill{border:1px solid #bca056;color:#bca056;padding:3mm 5mm;border-radius:30px;font-size:9pt;display:inline-block;width:fit-content}
+.mpi-book-cover-footer{font-size:9pt;color:#777;display:flex;justify-content:space-between;border-top:1px solid #d8d8d8;padding-top:5mm}
+.mpi-book-empty{margin:30mm 0;color:#777;text-align:center}
+@media(max-width:850px){.mpi-book-scroll{padding:10px 8px 30px}.mpi-book-page{width:min(210mm,calc(100vw - 18px));height:auto;min-height:0;aspect-ratio:210/297;padding:5% 6%;font-size:1.5vw}.mpi-book-wordmark{font-size:clamp(11px,2.3vw,18pt)}.mpi-book-num{font-size:clamp(7px,1.3vw,8pt);letter-spacing:1px}.mpi-book-title{font-size:clamp(13px,3vw,23pt)}.mpi-book-kicker,.mpi-book-color-label{font-size:clamp(7px,1.2vw,8pt)}.mpi-book-description{font-size:clamp(8px,1.4vw,10.5pt);line-height:1.4}.mpi-book-benefits li{font-size:clamp(7px,1.3vw,9pt)}.mpi-book-spec-row{font-size:clamp(7px,1.2vw,9pt);min-height:0}.mpi-book-lead{min-height:0}.mpi-book-photo{height:32vw;max-height:91mm}.mpi-book-thumbs{height:9vw;max-height:27mm}.mpi-book-color{font-size:clamp(7px,1.2vw,9pt)}.mpi-book-cover-title{font-size:clamp(30px,7.5vw,49pt)}.mpi-book-cover-subtitle{font-size:clamp(10px,1.9vw,12pt)}.mpi-book-cover-photo{height:25vw}.mpi-book-bar{height:auto;min-height:66px;flex-wrap:wrap}.mpi-book-actions button{padding:9px 11px;font-size:12px}}
+@page{size:A4 portrait;margin:0}
+@media print{
+  html,body{width:210mm!important;min-width:210mm!important;background:#fff!important;margin:0!important;padding:0!important;overflow:visible!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body>*:not(#mpiBookPreview){display:none!important}
+  #mpiBookPreview{position:static!important;inset:auto!important;background:transparent!important;display:block!important;width:210mm!important;height:auto!important;overflow:visible!important}
+  .mpi-book-bar{display:none!important}
+  .mpi-book-scroll{display:block!important;position:static!important;overflow:visible!important;margin:0!important;padding:0!important;height:auto!important}
+  #mpiBookPages{display:block!important;margin:0!important;padding:0!important}
+  .mpi-book-page{width:210mm!important;height:297mm!important;min-height:297mm!important;aspect-ratio:auto!important;padding:15mm 15mm 13mm!important;display:flex!important;flex-direction:column!important;box-shadow:none!important;border:0!important;border-radius:0!important;break-after:page!important;page-break-after:always!important;font-size:10.5pt!important;overflow:hidden!important}
+  .mpi-book-page:last-child{break-after:auto!important;page-break-after:auto!important}
+  .mpi-book-head{min-height:14mm!important}.mpi-book-wordmark{font-size:18pt!important}.mpi-book-num{font-size:8pt!important}
+  .mpi-book-lead{min-height:115mm!important}.mpi-book-title{font-size:23pt!important}.mpi-book-photo{height:91mm!important}.mpi-book-thumbs{height:27mm!important}
+  .mpi-book-kicker,.mpi-book-color-label{font-size:8pt!important}.mpi-book-description{font-size:10.5pt!important;line-height:1.75!important}.mpi-book-color{font-size:8.5pt!important}.mpi-book-benefits li{font-size:9pt!important}.mpi-book-spec-row{font-size:9.1pt!important;min-height:9mm!important}
+  .mpi-book-cover-title{font-size:49pt!important}.mpi-book-cover-subtitle{font-size:12pt!important}.mpi-book-cover-photo{height:86mm!important}
+}
+
+
+/* V54.1/V55: controles de selección para vista A4 */
+.mpi-book-bar{height:auto;min-height:70px;gap:12px;flex-wrap:wrap;padding:12px 18px}
+.mpi-book-heading{min-width:175px;flex:1 1 185px}
+.mpi-book-controls{display:flex;flex-wrap:wrap;align-items:end;gap:10px;flex:2 1 440px}
+.mpi-book-controls label{font-size:11px;font-weight:800;color:#d8dfe5;display:flex;flex-direction:column;gap:5px;min-width:142px;flex:1 1 140px}
+.mpi-book-controls label[hidden]{display:none!important}
+.mpi-book-controls select{max-width:100%;height:36px;padding:5px 27px 5px 9px;border:1px solid #596778;border-radius:8px;background:#1d2a33;color:#fff;font-size:12px;font-weight:600}
+.mpi-book-actions{margin-left:auto}
+.mpi-book-scroll{min-height:0;flex:1;overflow:auto}
+.mpi-book-selection{font-size:9pt;color:#a88835;font-weight:700;margin-top:3mm;letter-spacing:1.1px;text-transform:uppercase}
+@media(max-width:780px){.mpi-book-controls{order:3;flex-basis:100%}.mpi-book-actions{margin-left:0}}
+@media print{.mpi-book-bar,.mpi-book-controls{display:none!important}}
+</style>
+<style id="mpi68-print-custom">
+#mpiBookPages .mpi-book-cover-title em,#mpiBookPages .mpi-book-wordmark span,#mpiBookPages .mpi-book-cover-kicker,#mpiBookPages .mpi-mini-row b,#mpiBookPages .mpi-mini-specs h3{color:var(--mpi-print-accent,#c29b40)!important}
+#mpiBookPages .mpi-book-head{border-bottom-color:var(--mpi-print-accent,#c29b40)!important}
+</style>
+<style id="mpi63-print-index">.mpi63-cover-index{margin:12px 0;max-width:440px;padding:9px 12px;border:1px solid #dbc994;border-radius:8px;background:#fffdf8;color:#222;font-family:Arial,sans-serif;font-size:10px}.mpi63-cover-index>strong{color:#8d681d;display:block;margin-bottom:7px;letter-spacing:.1em;text-transform:uppercase}.mpi63-cover-index>div{display:flex;justify-content:space-between;gap:10px;padding:4px 0;border-bottom:1px solid #f0e8d7}.mpi63-cover-index>div:last-child{border-bottom:0}.mpi63-cover-index b{color:#946d24}</style><style id="mpi67-a4-two-products">
+/* V67: portada completa y fichas dobles en dos columnas por cada hoja A4. */
+.mpi-book-page.mpi-book-two-page{display:flex;flex-direction:column}
+.mpi-book-duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6mm;flex:1;min-height:0;padding:5mm 0 0}
+.mpi-book-mini{min-width:0;min-height:0;display:flex;flex-direction:column;padding:3mm;border:1px solid #e5e0d5;border-radius:2.5mm;background:#fff;overflow:hidden}
+.mpi-book-mini.is-placeholder{border-style:dashed;justify-content:center;align-items:center;background:#faf9f6;color:#999;font-size:9pt}
+.mpi-mini-sequence{font-size:7pt;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:#a88a42;margin-bottom:2mm}
+.mpi-mini-photo{display:block;width:100%;height:55mm;object-fit:contain;border-radius:2mm;border:1px solid #ededed;background:#fafafa}
+.mpi-mini-noimage{display:grid;place-items:center;color:#999}
+.mpi-mini-thumbs{display:flex;gap:2mm;height:12mm;margin-top:2mm}
+.mpi-mini-thumbs img{height:100%;width:31%;object-fit:contain;border-radius:1.5mm;border:1px solid #eee}
+.mpi-mini-name{font:700 14.5pt/1.12 Georgia,'Times New Roman',serif;margin:4mm 0 2mm;color:#141414;overflow-wrap:anywhere}
+.mpi-mini-desc{font:8.2pt/1.45 Arial,sans-serif;color:#545454;margin:0 0 3mm;white-space:pre-line;overflow-wrap:anywhere}
+.mpi-mini-label{font:700 7pt/1.2 Arial,sans-serif;letter-spacing:.6px;text-transform:uppercase;color:#9c7f3c;margin:2mm 0 1.5mm}
+.mpi-mini-colors{display:flex;flex-wrap:wrap;gap:1.5mm 3mm;align-items:center}
+.mpi-mini-color{display:inline-flex;gap:1mm;align-items:center;color:#666;font:7pt/1.2 Arial,sans-serif}
+.mpi-mini-dot{width:3.2mm;height:3.2mm;border-radius:50%;border:1px solid #ddd;flex:none}
+.mpi-mini-benefits{list-style:none;padding:0;margin:2mm 0 3mm;display:flex;flex-direction:column;gap:1.5mm}
+.mpi-mini-benefits li{font:7.6pt/1.3 Arial,sans-serif;padding-left:3.5mm;position:relative;color:#454545;overflow-wrap:anywhere}
+.mpi-mini-benefits li:before{content:'✓';position:absolute;left:0;color:#b78b28;font-weight:800}
+.mpi-mini-specs{margin-top:auto;border-top:1px solid #dcc89d;padding-top:2mm}
+.mpi-mini-specs h3{margin:0 0 1.5mm;color:#b38b36;font:800 7pt/1.2 Arial,sans-serif;text-transform:uppercase;letter-spacing:.7px}
+.mpi-mini-row{display:grid;grid-template-columns:41% 59%;gap:1mm;align-items:start;padding:1.35mm 1mm;font:7.3pt/1.2 Arial,sans-serif;border-bottom:1px solid #ededed;overflow-wrap:anywhere}
+.mpi-mini-row:nth-child(even){background:#f8f7f4}
+.mpi-mini-row b{color:#917333}
+.mpi-mini-row span{color:#333}
+.mpi-mini-note{color:#8b8b8b;font:6.5pt/1.3 Arial,sans-serif;margin-top:2mm}
+.mpi-book-two-page .mpi-book-foot{margin-top:3mm}
+@media(max-width:850px){
+ .mpi-book-scroll{overflow-x:auto}
+ .mpi-book-page.mpi-book-two-page{width:210mm!important;height:297mm!important;min-height:297mm!important;aspect-ratio:auto!important;padding:15mm 15mm 13mm!important;flex:none!important}
+ .mpi-book-two-page .mpi-book-wordmark{font-size:18pt!important}
+ .mpi-book-two-page .mpi-book-num{font-size:8pt!important}
+}
+@media print{
+ .mpi-book-page.mpi-book-two-page{width:210mm!important;height:297mm!important;min-height:297mm!important;padding:15mm 15mm 13mm!important;break-after:page!important;overflow:hidden!important}
+ .mpi-book-page.mpi-book-two-page:last-child{break-after:auto!important}
+ .mpi-book-duo{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6mm!important;flex:1!important;min-height:0!important}
+ .mpi-book-mini{break-inside:avoid!important;page-break-inside:avoid!important}
+ .mpi-mini-photo{height:55mm!important}
+ .mpi-mini-thumbs{height:12mm!important}
+}
+</style>
+<style id="mpi70-catalog-mobile">
+/* Catálogo V70: fichas de lectura en móvil; impresión A4 siempre 2 columnas. */
+@media screen and (max-width:790px){
+ .topbar .wrap { gap:10px; flex-wrap:wrap; padding:10px 13px; }
+ .top-actions { width:100%; justify-content:center; gap:8px; }
+ .mini-btn { min-height:43px; padding:10px 13px; }
+ .hero h1 { font-size:clamp(34px,9.5vw,55px); }
+ .hero-stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .wrap { padding-left:14px; padding-right:14px; }
+ #mpiBookPreview .mpi-book-bar { height:auto!important; max-height:48dvh; overflow-y:auto; flex:0 0 auto; display:flex; flex-wrap:wrap; padding:10px 12px; gap:9px; align-items:center; }
+ #mpiBookPreview .mpi-book-heading { min-width:0; }
+ #mpiBookPreview .mpi-book-heading strong { font-size:12px; }
+ #mpiBookPreview .mpi-book-heading small { font-size:11px; line-height:1.3; }
+ #mpiBookPreview .mpi-book-controls { width:100%; order:3; gap:8px; }
+ #mpiBookPreview .mpi-book-controls label { min-width:0; flex:1 1 125px; font-size:12px; }
+ #mpiBookPreview .mpi-book-controls select { max-width:100%; font-size:16px; min-height:43px; }
+ #mpiBookPreview .mpi-book-actions { margin:0;display:flex;align-items:center;gap:6px;flex-wrap:wrap; }
+ #mpiBookPreview .mpi-book-actions button { min-height:43px; padding:9px; font-size:11px; }
+ #mpiBookPreview .mpi-book-scroll { overflow-x:hidden; padding:12px 8px calc(26px + env(safe-area-inset-bottom,0px)); }
+ #mpiBookPreview.mpi70-a4 #mpiBookPages { zoom:var(--mpi70-book-zoom,1); width:210mm!important; max-width:none!important; }
+ #mpiBookPreview.mpi70-a4 .mpi-book-page { width:210mm!important; height:297mm!important; aspect-ratio:auto!important; min-height:297mm!important; padding:15mm 15mm 13mm!important; font-size:10.5pt!important; }
+ #mpiBookPreview.mpi70-a4 .mpi-book-cover { width:210mm!important; }
+ #mpiBookPreview.mpi70-reader #mpiBookPages { zoom:1!important;width:100%!important;gap:13px; }
+ #mpiBookPreview.mpi70-reader .mpi-book-page { width:100%!important; height:auto!important; min-height:0!important; aspect-ratio:auto!important; padding:18px 14px!important; border-radius:10px; box-shadow:0 8px 22px #0009; overflow:visible; }
+ #mpiBookPreview.mpi70-reader .mpi-book-head{gap:8px; flex-wrap:wrap; }
+ #mpiBookPreview.mpi70-reader .mpi-book-wordmark{font-size:16px!important;letter-spacing:.1px;}
+ #mpiBookPreview.mpi70-reader .mpi-book-num{font-size:10px!important;}
+ #mpiBookPreview.mpi70-reader .mpi-book-duo{display:flex!important;flex-direction:column;gap:14px;padding-top:13px;}
+ #mpiBookPreview.mpi70-reader .mpi-book-mini{display:flex;flex-direction:column;min-height:0!important;overflow:visible;padding:12px;border-radius:9px;}
+ #mpiBookPreview.mpi70-reader .mpi-mini-sequence{font-size:10px;margin-bottom:8px;}
+ #mpiBookPreview.mpi70-reader .mpi-mini-photo{height:clamp(180px,55vw,300px)!important;object-fit:contain;}
+ #mpiBookPreview.mpi70-reader .mpi-mini-thumbs{height:52px;gap:7px;}
+ #mpiBookPreview.mpi70-reader .mpi-mini-name{font-size:clamp(19px,5.2vw,25px)!important;margin:12px 0 8px;line-height:1.2;}
+ #mpiBookPreview.mpi70-reader .mpi-mini-desc{font-size:14px!important;line-height:1.55;}
+ #mpiBookPreview.mpi70-reader .mpi-mini-label{font-size:11px;}
+ #mpiBookPreview.mpi70-reader .mpi-mini-color{font-size:12px;}
+ #mpiBookPreview.mpi70-reader .mpi-mini-benefits li{font-size:13px;line-height:1.45;padding-left:18px;}
+ #mpiBookPreview.mpi70-reader .mpi-mini-specs h3{font-size:12px;}
+ #mpiBookPreview.mpi70-reader .mpi-mini-row{font-size:12px;line-height:1.4;grid-template-columns:minmax(0,40%) minmax(0,60%);padding:7px 5px;}
+ #mpiBookPreview.mpi70-reader .mpi-mini-note{font-size:11px;}
+ #mpiBookPreview.mpi70-reader .mpi-book-foot{font-size:10px;flex-wrap:wrap;gap:5px;}
+ #mpiBookPreview.mpi70-reader .mpi-book-mini.is-placeholder{display:none;}
+ #mpiBookPreview.mpi70-reader .mpi-book-cover-main { padding:20px 0!important; }
+ #mpiBookPreview.mpi70-reader .mpi-book-cover-title { font-size:clamp(27px,8vw,44px)!important;line-height:1.1; }
+ #mpiBookPreview.mpi70-reader .mpi-book-cover-subtitle { font-size:14px!important;line-height:1.55; }
+ #mpiBookPreview.mpi70-reader .mpi-book-cover-photo { max-height:230px;object-fit:contain; }
+ #mpiBookPreview.mpi70-reader .mpi-book-cover-footer { position:static!important; margin-top:15px; }
+ #mpiBookPreview.mpi70-reader .mpi63-cover-index { max-width:100%; }
+}
+@media screen and (min-width:791px){#mpi70BookMode{display:none!important;}}
+@media print{
+ #mpiBookPreview #mpiBookPages{zoom:1!important;width:210mm!important;max-width:none!important;}
+ #mpiBookPreview .mpi-book-page {width:210mm!important;height:297mm!important;min-height:297mm!important;aspect-ratio:auto!important;padding:15mm 15mm 13mm!important;box-shadow:none!important;border-radius:0!important;overflow:hidden!important;}
+ #mpiBookPreview .mpi-book-duo{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6mm!important;flex-direction:row!important;}
+ #mpiBookPreview .mpi-book-mini{padding:3mm!important;overflow:hidden!important;border-radius:2.5mm!important;}
+ #mpiBookPreview .mpi-mini-photo{height:55mm!important;}
+ #mpiBookPreview .mpi-mini-thumbs{height:12mm!important;}
+ #mpiBookPreview .mpi-mini-name{font-size:14.5pt!important;margin:4mm 0 2mm!important;}
+ #mpiBookPreview .mpi-mini-desc{font-size:8.2pt!important;line-height:1.45!important;}
+ #mpiBookPreview .mpi-mini-color{font-size:7pt!important;}
+ #mpiBookPreview .mpi-mini-benefits li{font-size:7.6pt!important;padding-left:3.5mm!important;}
+ #mpiBookPreview .mpi-mini-row{font-size:7.3pt!important;line-height:1.2!important;padding:1.35mm 1mm!important;grid-template-columns:41% 59%!important;}
+ #mpiBookPreview .mpi-mini-note{font-size:6.5pt!important;}
+ #mpi70BookMode{display:none!important;}
+}
+
+</style>
+<style id="mpi74PrintSettings">
+/* Los límites conservan dos fichas por hoja A4; el lector móvil tiene sus propias reglas. */
+#mpiBookPreview #mpiBookPages .mpi-book-two-page .mpi-mini-photo{height:var(--mpi74-photo-height,55mm)!important}
+#mpiBookPreview #mpiBookPages .mpi-book-two-page .mpi-mini-name{font-size:calc(14.5pt * var(--mpi74-font-scale,1))!important}
+#mpiBookPreview #mpiBookPages .mpi-book-two-page .mpi-mini-desc{font-size:calc(8.2pt * var(--mpi74-font-scale,1))!important}
+@media(max-width:850px){#mpiBookPreview.mpi70-reader #mpiBookPages .mpi-mini-photo{height:clamp(180px,55vw,300px)!important}#mpiBookPreview.mpi70-reader #mpiBookPages .mpi-mini-name{font-size:clamp(19px,5.2vw,25px)!important}#mpiBookPreview.mpi70-reader #mpiBookPages .mpi-mini-desc{font-size:14px!important}}
+</style><style id="mpi90-catalog-safety-css">
+html.mpi90-catalog-loading body > *:not(#mpi90CatalogGate){visibility:hidden!important}
+#mpi90CatalogGate{position:fixed;inset:0;z-index:2147483646;display:flex;align-items:center;justify-content:center;padding:25px;background:#0a1218;color:#f3efe5;font:16px/1.6 system-ui,Arial,sans-serif;text-align:center}
+#mpi90CatalogGate[hidden]{display:none!important}#mpi90CatalogGate div{max-width:530px;padding:25px;border:1px solid #9c7d37;border-radius:14px;background:#16242e}#mpi90CatalogGate h1{font-size:21px;color:#f2c65c;margin:0 0 10px}#mpi90CatalogGate button{background:#f0c45a;color:#13181b;border:0;border-radius:8px;padding:12px 16px;font-weight:800;cursor:pointer}
+</style><script id="mpi90CatalogBoot">if((location.protocol==='http:'||location.protocol==='https:')&&window.parent===window)document.documentElement.classList.add('mpi90-catalog-loading');</script>
+<style id="mpi-v121-catalog-logo">
+.topbar .brand{min-width:0;max-width:100%;gap:10px}
+.topbar .brand img{width:66px;max-width:none;height:66px;object-fit:contain;flex:0 0 66px}
+.mpi-v121-catalog-brand{display:flex;flex-direction:column;gap:4px;min-width:0;line-height:1.2}
+.mpi-v121-catalog-brand strong{font-weight:900;font-size:clamp(13px,1.5vw,21px);color:#f4f0ea}
+.mpi-v121-catalog-brand small{font-size:10px;font-weight:800;letter-spacing:.08em;color:#e6b954}
+@media(max-width:600px){.topbar .wrap{gap:8px;padding:10px 16px}.topbar .brand img{width:48px;height:48px;flex-basis:48px}.mpi-v121-catalog-brand strong{font-size:12px}.mpi-v121-catalog-brand small{font-size:8px}}
+@media(max-width:390px){.topbar .brand img{width:40px;height:40px;flex-basis:40px}.mpi-v121-catalog-brand strong{font-size:11px}.mini-btn{font-size:10px;padding:9px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <img src="assets/mpi_logo_megaprime_importaciones.png" alt="Logotipo de Mega Prime Importaciones" width="66" height="66"/><span class="mpi-v121-catalog-brand"><strong>MEGA PRIME IMPORTACIONES</strong><small>CATÁLOGO DIGITAL DE PRODUCTOS</small></span>
+    </div>
+    <div class="top-actions no-print">
+      
+      <button type="button" class="mini-btn gold" onclick="scrollToCatalog()" aria-label="Explorar las fichas de productos del catálogo">Explorar productos ↓</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="badge">Catálogo digital 2026</span>
+      <h1>Nuestro <span>Catálogo</span><br>de Productos</h1>
+      <p>Explora cubiertas, acabados, herramientas y maquinarias con una presentación elegante, técnica y comercial. Diseñado para mostrar especificaciones, colores, variantes y una ruta rápida para cotizar por WhatsApp.</p>
+      <div class="hero-actions no-print">
+        <button class="btn gold" onclick="openBookPreview()">👁 Vista previa para imprimir</button>
+        <button class="btn red" onclick="printBooklet()">📄 Imprimir / guardar PDF</button>
+        <a class="btn green" id="heroWhatsapp" href="#">🟢 Pedir cotización</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>20+</strong><span>Productos y familias organizadas por categorías comerciales.</span></div>
+        <div class="stat"><strong>4</strong><span>Líneas principales: cubiertas, acabados, herramientas y maquinarias.</span></div>
+        <div class="stat"><strong>PC · Móvil</strong><span>Diseño adaptado a distintas pantallas.</span></div>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="hero-media">
+        <img id="heroImage" src="" alt="Producto destacado">
+        <div class="hero-overlay">
+          <span class="tag" id="heroCategory">Cubiertas</span>
+          <h3 id="heroTitle">Teja española PVC / ASA</h3>
+          <p id="heroDescription">2,5 mm · ancho útil 0,960 m · colores comerciales · accesorios disponibles.</p>
+        </div>
+      </div>
+      <div class="hero-controls no-print">
+        <button type="button" onclick="stepHero(-1)">← Anterior</button>
+        <button type="button" onclick="openProductByIndex(heroIndex)">Ver ficha</button>
+        <button type="button" onclick="stepHero(1)">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="separator wrap"></div>
+
+<section class="wrap" id="catalogo">
+  <div class="catalog-tools">
+    <div class="heading">
+      <h2>Catálogo comercial premium</h2>
+      <p>Filtra por categoría, revisa variantes y abre la ficha del producto. Este catálogo está pensado para presentar mejor tu negocio y servir también como base para una versión descargable o imprimible.</p>
+    </div>
+    <label class="search-box no-print">
+      <span>🔎</span>
+      <input id="searchInput" type="search" placeholder="Buscar producto o categoría..."/>
+    </label>
+  </div>
+  <div class="filter-row no-print" id="categoryFilters"></div>
+  <div class="subfilter-row no-print" id="subcategoryFilters"></div>
+  <div class="grid" id="productGrid"></div>
+</section>
+
+<section class="wrap">
+  <div class="cta">
+    <div>
+      <h3>Catálogo listo para vender mejor</h3>
+      <p>Este diseño te permite presentar tus productos con una imagen más profesional y comercial. También puede evolucionar a una versión conectada con tu panel administrativo para editar productos, fotos, colores, fichas técnicas y enlaces de descarga.</p>
+      <ul>
+        <li>✔ Vista elegante tipo brochure</li>
+        <li>✔ Filtros por categoría y subcategoría</li>
+        <li>✔ Ficha ampliada por producto</li>
+        <li>✔ Botón de cotización directa</li>
+        <li>✔ Preparado para PDF e impresión</li>
+        <li>✔ Compatible con tu estilo MPI</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h4>Siguiente mejora recomendada</h4>
+      <p>Conectar este catálogo con tu panel admin para que puedas actualizar productos desde cabecera hasta pie de página, sin tocar el código HTML manualmente.</p>
+      <div class="sheet-actions no-print">
+        <button class="btn gold" onclick="downloadPdf()">Imprimir / guardar PDF</button>
+        <a class="btn green" id="ctaWhatsapp" href="#">Solicitar cotización</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>MEGA PRIME IMPORT · Cubiertas · Acabados · Herramientas · Maquinarias</div>
+    <div>Catálogo digital demostrativo · Ambato · Ecuador</div>
+  </div>
+</footer>
+
+
+<div id="mpiBookPreview" aria-hidden="true" role="dialog" aria-label="Vista previa del catálogo para imprimir">
+<div class="mpi-book-bar">
+<div class="mpi-book-heading"><strong>MEGA PRIME IMPORT · Vista previa A4</strong><small id="mpiBookStatus">Catálogo generado a partir de los productos publicados</small></div>
+<div class="mpi-book-controls">
+<label>Imprimir <select id="mpiBookScope" aria-label="Alcance del catálogo"><option value="all">Todo el catálogo</option><option value="category">Por categoría</option><option value="subcategory">Por subcategoría</option></select></label>
+<label id="mpiBookCategoryWrap" hidden>Categoría <select id="mpiBookCategory" aria-label="Seleccionar categoría"></select></label>
+<label id="mpiBookSubWrap" hidden>Subcategoría <select id="mpiBookSubcategory" aria-label="Seleccionar subcategoría"></select></label>
+<label class="mpi85-book-paper-control" for="mpiBookPaper">Tamaño del papel <select id="mpiBookPaper" aria-label="Formato del papel del catálogo"><option value="A4">A4 · 210 × 297 mm</option><option value="A5">A5 · 148 × 210 mm</option></select></label>
+</div>
+<div class="mpi-book-actions"><button id="mpi70BookMode" class="mpi-book-back" type="button" aria-pressed="true">▤ Ver hojas A4</button><button onclick="printBooklet()" type="button">Imprimir / Guardar PDF</button><button class="mpi-book-back" onclick="closeBookPreview()" type="button">Volver ✕</button></div>
+</div>
+  <div class="mpi-book-scroll"><div id="mpiBookPages"></div></div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="sheet">
+    <div class="sheet-head">
+      <h3 id="modalTitle">Producto</h3>
+      <button class="close" onclick="closeModal()">Cerrar ✕</button>
+    </div>
+    <div class="sheet-body">
+      <div>
+        <img id="modalImage" src="" alt="Producto"/>
+      </div>
+      <div>
+        <div class="info-card">
+          <h4 id="modalCategory">Categoría</h4>
+          <p id="modalDescription"></p>
+          <div class="info-grid" id="modalSpecs"></div>
+          <div class="colors" id="modalColors"></div>
+          <div class="sheet-actions no-print">
+            <a class="btn green" id="modalWhatsapp" href="#">Pedir cotización</a>
+            <button class="btn gold" onclick="closeModal();scrollToCatalog()">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const photo=id=>{
+ const v=String(id||'').trim();
+ if(/^https:\/\/[^\s\"'<>`]+$/i.test(v)||/^data:image\/(?:png|jpeg|webp);base64,[a-z0-9+/=]+$/i.test(v)||/^\/uploads\/(?:products|media)\/[a-f0-9]{32}\.(?:png|jpg|webp)$/i.test(v))return v;
+ if(/^photo-[a-z0-9-]+$/i.test(v))return `https://images.unsplash.com/${v}?auto=format&fit=crop&w=1200&q=80`;
+ return '/mpi_emblema_leon_cubierta.webp';
+};
+const escapeCatalog=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const COLOR_MAP={'Terracota':'#c85d35','Negro':'#181818','Verde':'#2b9d65','Azul':'#2c6fcb','Rojo':'#b73025','Café':'#7a594d','Blanco':'#f0f0ea','Gris':'#7d868d','Madera':'#ae8458','Transparente':'#dcedf3','Opal':'#f7f2e6','Bronce':'#8f6747','Gris humo':'#5f666e'};
+// La tienda principal gestiona WhatsApp y las cotizaciones; nunca se usa un número de prueba.
+// Las categorías visibles llegan del CMS y conservan el orden establecido en MariaDB.
+// Estos valores se utilizan únicamente en el catálogo demostrativo sin conexión.
+const MPI_CATALOG_DEMO_CATEGORIES=[
+  {key:'Todos',label:'Todos',icon:'⊞'},
+  {key:'Cubiertas',label:'Cubiertas',icon:'⌂'},
+  {key:'Acabados',label:'Acabados',icon:'✦'},
+  {key:'Herramientas',label:'Herramientas',icon:'⚙'},
+  {key:'Maquinarias',label:'Maquinarias',icon:'▣'},
+  {key:'Accesorios',label:'Accesorios',icon:'◈'},
+  {key:'Materiales',label:'Materiales',icon:'▦'}
+];
+let categories=MPI_CATALOG_DEMO_CATEGORIES.slice();
+const MPI_CATALOG_ICONS={Cubiertas:'⌂',Acabados:'✦',Herramientas:'⚙',Maquinarias:'▣',Accesorios:'◈',Materiales:'▦'};
+function applyPublishedCategories(input){
+  if(!Array.isArray(input))return;
+  const next=[{key:'Todos',label:'Todos',icon:'⊞'}],seen=new Set();
+  for(const raw of input.slice(0,80)){
+    if(!raw||typeof raw!=='object'||raw.visible===false)continue;
+    const name=String(raw.name||'').trim().slice(0,90);
+    const normalized=name.toLocaleLowerCase('es');
+    if(!name||normalized==='todos'||seen.has(normalized))continue;
+    seen.add(normalized);
+    next.push({key:name,label:name,icon:MPI_CATALOG_ICONS[name]||'◇'});
+  }
+  categories=next;
+  if(currentCategory!=='Todos'&&!next.some(c=>c.key===currentCategory)){
+    currentCategory='Todos';currentSub='Todos';
+  }
+}
+let products=[
+  {id:1,name:'Teja española PVC / ASA',category:'Cubiertas',subcategory:'Tejas PVC',img:'photo-1600566753190-17f0baa2a6c3',desc:'Cubierta tipo española para proyectos residenciales y comerciales. Presentación premium con acabado visual elegante y buena resistencia al clima.',line1:'Espesor 2,5 mm',line2:'Ancho útil 0,960 m',colors:['Terracota','Negro','Verde','Azul','Rojo','Café']},
+  {id:2,name:'Teja Roma 1050 colonial',category:'Cubiertas',subcategory:'Tejas PVC',img:'photo-1600566752355-35792bedcfea',desc:'Modelo Roma de apariencia colonial para cubiertas arquitectónicas con acabado decorativo y sistema de instalación eficiente.',line1:'Ancho útil 0,950 m',line2:'Modelo comercial Roma 1050',colors:['Terracota','Negro','Verde','Rojo']},
+  {id:3,name:'Teja cresta alta 1080',category:'Cubiertas',subcategory:'Techo trapezoidal',img:'photo-1635424710928-0544e8512eae',desc:'Perfil de cresta alta ideal para cubiertas de mayor desagüe y comportamiento estructural. Recomendable para aplicaciones industriales y mixtas.',line1:'Ancho útil 1,005 m',line2:'Presentación 2,0 mm',colors:['Terracota','Azul','Verde','Gris']},
+  {id:4,name:'Teja cresta alta T1130',category:'Cubiertas',subcategory:'Techo trapezoidal',img:'photo-1504307651254-35680f356dfd',desc:'Modelo T1130 para cubiertas técnicas de mayor cobertura útil, compatible con cálculo avanzado y accesorios.',line1:'Ancho total 1,13 m',line2:'Ancho útil 1,05 m',colors:['Rojo','Azul','Verde','Gris']},
+  {id:5,name:'Policarbonato alveolar y sólido',category:'Cubiertas',subcategory:'Policarbonato',img:'photo-1497366754035-f200968a6e72',desc:'Soluciones de iluminación y cerramiento con opciones alveolares y sólidas. Ideal para cubiertas translúcidas, terrazas y marquesinas.',line1:'Polyrise y Glanze',line2:'Opciones translúcidas',colors:['Transparente','Opal','Bronce','Gris humo']},
+  {id:6,name:'Duratecho metálico',category:'Cubiertas',subcategory:'Techo trapezoidal',img:'photo-1504307651254-35680f356dfd',desc:'Cubierta metálica para aplicaciones de obra rápida con buena cobertura y variedad de espesores por confirmar.',line1:'Uso comercial e industrial',line2:'Consultar espesores',colors:['Rojo','Azul','Gris']},
+  {id:7,name:'Cubiteja',category:'Cubiertas',subcategory:'Tejas PVC',img:'photo-1600607687920-4e2a09cf159d',desc:'Solución tipo teja con formato técnico para proyectos donde se busca imagen residencial con montaje eficiente.',line1:'Consultar presentación',line2:'Accesorios compatibles',colors:['Terracota','Negro','Verde']},
+  {id:8,name:'Cielo raso PVC 8 mm',category:'Acabados',subcategory:'Tumbado PVC',img:'photo-1600607687939-ce8a6c25118c',desc:'Panel para tumbado interior en presentaciones comerciales de 5,95 m, compatible con sistema de cálculo de materiales y accesorios.',line1:'Espesor 8 mm',line2:'Anchos 25 y 30 cm',colors:['Blanco','Madera','Gris']},
+  {id:9,name:'Wall panels WPC',category:'Acabados',subcategory:'Revestimientos',img:'photo-1601058268499-e52658b8bb88',desc:'Paneles decorativos para interiores y exteriores con efecto arquitectónico moderno y acabados tipo madera o diseño contemporáneo.',line1:'Interior y exterior',line2:'Fijación mecánica o adhesiva',colors:['Madera','Gris','Negro','Blanco']},
+  {id:10,name:'Alucobond / ACP',category:'Acabados',subcategory:'Revestimientos',img:'photo-1504148455328-c376907d081c',desc:'Panel compuesto de aluminio para fachadas, imagen corporativa y revestimientos arquitectónicos de gran formato.',line1:'Fachadas y letreros',line2:'Múltiples acabados',colors:['Blanco','Gris','Negro','Madera']},
+  {id:11,name:'Pisos SPC',category:'Acabados',subcategory:'Pisos SPC',img:'photo-1600607687920-4e2a09cf159d',desc:'Pisos de instalación eficiente con apariencia de madera o piedra y buena estabilidad para espacios residenciales y comerciales.',line1:'Instalación flotante',line2:'Varias texturas',colors:['Madera','Gris','Café']},
+  {id:12,name:'Barrederas',category:'Acabados',subcategory:'Complementos',img:'photo-1601058268499-e52658b8bb88',desc:'Complementos para terminación de pisos y paredes, con opciones de color que armonizan con tus acabados interiores.',line1:'Terminación limpia',line2:'Varios colores',colors:['Blanco','Gris','Madera','Negro']},
+  {id:13,name:'Cornisas',category:'Acabados',subcategory:'Complementos',img:'photo-1600607687939-ce8a6c25118c',desc:'Detalles decorativos para interiores, ideales para proyectos de remodelación, diseño y acabados arquitectónicos.',line1:'Acabado decorativo',line2:'Modelos por confirmar',colors:['Blanco','Madera']},
+  {id:14,name:'Herramientas eléctricas',category:'Herramientas',subcategory:'Herramientas',img:'photo-1504148455328-c376907d081c',desc:'Línea de herramientas eléctricas para corte, perforación, instalación y mantenimiento en obra.',line1:'Uso profesional',line2:'Modelos variados',colors:['No aplica']},
+  {id:15,name:'Herramientas manuales',category:'Herramientas',subcategory:'Herramientas',img:'photo-1601058268499-e52658b8bb88',desc:'Herramientas de mano para instalación, ajuste y acabados, pensadas para cuadrillas y técnicos instaladores.',line1:'Línea de obra',line2:'Disponibilidad variable',colors:['No aplica']},
+  {id:16,name:'Mezcladoras de concreto',category:'Maquinarias',subcategory:'Maquinarias',img:'photo-1580901368919-7738efb0f87e',desc:'Equipos para preparación de mezcla en obra y proyectos de construcción de distintas escalas.',line1:'Equipo de obra',line2:'Capacidades por confirmar',colors:['No aplica']},
+  {id:17,name:'Compactadoras',category:'Maquinarias',subcategory:'Maquinarias',img:'photo-1580901368919-7738efb0f87e',desc:'Maquinaria para trabajos de compactación en pisos, bases y zonas de circulación.',line1:'Modelos por confirmar',line2:'Disponibilidad sujeta a stock',colors:['No aplica']},
+  {id:18,name:'Generadores eléctricos',category:'Maquinarias',subcategory:'Maquinarias',img:'photo-1580901368919-7738efb0f87e',desc:'Soluciones de respaldo y alimentación energética para obra, eventos o trabajo en exteriores.',line1:'Potencias varias',line2:'Uso comercial',colors:['No aplica']},
+  {id:19,name:'Cumbreras y remates',category:'Accesorios',subcategory:'Accesorios',img:'photo-1601058268499-e52658b8bb88',desc:'Accesorios de instalación para cubiertas: cumbreras, remates, tapajuntas y componentes compatibles.',line1:'Para teja y cubierta',line2:'Según modelo',colors:['Terracota','Rojo','Verde','Azul']},
+  {id:20,name:'Tornillos y fijaciones',category:'Accesorios',subcategory:'Accesorios',img:'photo-1504148455328-c376907d081c',desc:'Fijaciones, arandelas y piezas complementarias para una instalación segura y completa.',line1:'Fijación especializada',line2:'Según sistema',colors:['No aplica']}
+];
+let currentCategory='Todos';
+let currentSub='Todos';
+let search='';
+let heroIndex=0;
+let heroProducts=products.slice(0,6);
+
+function whatsMessage(p){
+  return '#solicitar-cotizacion-'+p.id;
+}
+function scrollToCatalog(){document.getElementById('catalogo').scrollIntoView({behavior:'smooth',block:'start'})}
+function downloadPdf(){printBooklet()}
+function renderHero(){
+  const p=heroProducts[heroIndex];
+  if(!p)return;
+  document.getElementById('heroImage').src=photo(p.img);
+  document.getElementById('heroTitle').textContent=p.name;
+  document.getElementById('heroDescription').textContent=`${p.line1} · ${p.line2} · ${p.desc}`;
+  document.getElementById('heroCategory').textContent=p.category;
+  document.getElementById('heroWhatsapp').href=whatsMessage(p);
+}
+function stepHero(dir){heroIndex=(heroIndex+dir+heroProducts.length)%heroProducts.length;renderHero()}
+function renderCategoryFilters(){
+  const box=document.getElementById('categoryFilters');
+  // Eventos y textContent: los nombres creados en administración no se insertan como HTML.
+  const buttons=categories.map(c=>{
+    const button=document.createElement('button');button.type='button';
+    button.className='filter-btn'+(currentCategory===c.key?' active':'');
+    button.setAttribute('aria-pressed',String(currentCategory===c.key));
+    const symbol=document.createElement('span');symbol.textContent=c.icon;
+    button.append(symbol,document.createTextNode(c.label));
+    button.addEventListener('click',()=>setCategory(c.key));return button;
+  });
+  box.replaceChildren(...buttons);
+}
+function getSubcategories(){
+  const set=new Set(['Todos']);
+  products.filter(p=>currentCategory==='Todos'||p.category===currentCategory).forEach(p=>set.add(p.subcategory));
+  return [...set];
+}
+function renderSubfilters(){
+  const subs=getSubcategories();
+  const box=document.getElementById('subcategoryFilters');
+  box.replaceChildren(...subs.map(sub=>{
+    const button=document.createElement('button');button.type='button';
+    button.className='subfilter-btn'+(currentSub===sub?' active':'');
+    button.textContent=sub;button.setAttribute('aria-pressed',String(currentSub===sub));
+    button.addEventListener('click',()=>setSub(sub));return button;
+  }));
+}
+function filteredProducts(){
+  return products.filter(p=>{
+    const okCat=currentCategory==='Todos'||p.category===currentCategory;
+    const okSub=currentSub==='Todos'||p.subcategory===currentSub;
+    const txt=(p.name+' '+p.category+' '+p.subcategory+' '+p.desc).toLowerCase();
+    const okSearch=!search||txt.includes(search);
+    return okCat&&okSub&&okSearch;
+  });
+}
+function renderProducts(){
+  renderCategoryFilters();
+  renderSubfilters();
+  const grid=document.getElementById('productGrid');
+  const arr=filteredProducts();
+  if(!arr.length){grid.innerHTML='<div class="empty">No se encontraron productos con ese filtro.</div>';return}
+  grid.innerHTML=arr.map((p,i)=>`<article class="card"><div class="card-media"><img src="${escapeCatalog(photo(p.img))}" alt="${escapeCatalog(p.name)}"><span class="chip">${escapeCatalog(p.category)}</span></div><div class="card-body"><small>${escapeCatalog(p.subcategory)}</small><h3>${escapeCatalog(p.name)}</h3><p>${escapeCatalog(p.desc)}</p><div class="meta"><div><b>Dato técnico</b><span>${escapeCatalog(p.line1)}</span></div><div><b>Presentación</b><span>${escapeCatalog(p.line2)}</span></div></div><div class="colors">${(p.colors||[]).slice(0,6).map(c=>`<span class="sw"><span class="dot" style="background:${COLOR_MAP[c]||'#74818a'}"></span>${escapeCatalog(c)}</span>`).join('')}</div><div class="card-actions"><button class="primary" onclick="openProduct(${Number(p.id)})">Ver ficha</button><a href="${whatsMessage(p)}" target="_blank" rel="noopener">Cotizar</a></div></div></article>`).join('');
+}
+function setCategory(cat){currentCategory=cat;currentSub='Todos';renderProducts()}
+function setSub(sub){currentSub=sub;renderProducts()}
+function openProduct(id){
+  const p=products.find(x=>x.id===id); if(!p) return;
+  document.getElementById('modalTitle').textContent=p.name;
+  document.getElementById('modalImage').src=photo(p.img);
+  document.getElementById('modalCategory').textContent=`${p.category} / ${p.subcategory}`;
+  document.getElementById('modalDescription').textContent=p.desc;
+  document.getElementById('modalSpecs').innerHTML=`<div><b>Dato técnico 1</b><span>${escapeCatalog(p.line1)}</span></div><div><b>Dato técnico 2</b><span>${escapeCatalog(p.line2)}</span></div><div><b>Colores</b><span>${escapeCatalog((p.colors||[]).join(', '))}</span></div><div><b>Cotización</b><span>Consultar precio, stock y disponibilidad.</span></div>`;
+  document.getElementById('modalColors').innerHTML=(p.colors||[]).map(c=>`<span class="sw"><span class="dot" style="background:${COLOR_MAP[c]||'#74818a'}"></span>${escapeCatalog(c)}</span>`).join('');
+  document.getElementById('modalWhatsapp').href=whatsMessage(p);
+  document.getElementById('modal').classList.add('open');
+}
+function openProductByIndex(i){openProduct(heroProducts[i].id)}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+document.getElementById('searchInput').addEventListener('input',e=>{search=e.target.value.trim().toLowerCase();renderProducts()});
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+document.getElementById('ctaWhatsapp').href='#solicitar-cotizacion-catalogo';
+renderHero();renderProducts();
+setInterval(()=>{heroIndex=(heroIndex+1)%heroProducts.length;renderHero()},6000);
+
+// V53: entrada desde el catálogo incrustado a las fichas y cotizaciones de la tienda.
+window.addEventListener('message',function(event){
+  const data=event.data;
+  if(window.parent!==window && (event.source!==window.parent||event.origin!==location.origin))return;
+  if(window.parent===window && event.isTrusted && event.origin!==location.origin)return;
+ if(!data || data.type!=='MPI_CATALOG_SYNC' || !Array.isArray(data.products))return;
+  const clean=data.products.slice(0,300).filter(p=>p&&Number.isInteger(p.id)&&p.id>0)
+    .map(p=>({id:p.id,name:String(p.name||'Producto').slice(0,130),category:String(p.category||'Materiales').slice(0,75),
+      subcategory:String(p.subcategory||'General').slice(0,75),img:String(p.img||''),desc:String(p.desc||'Consultar ficha técnica').slice(0,450),
+      line1:String(p.line1||'Consultar medidas').slice(0,110),line2:String(p.line2||'Presentación a confirmar').slice(0,110),
+      colors:Array.isArray(p.colors)?p.colors.map(String).slice(0,15):[],
+      gallery:Array.isArray(p.gallery)?p.gallery.slice(0,12).map(String):[],
+      imageSets:p.imageSets&&typeof p.imageSets==='object'?p.imageSets:{},
+      presets:Array.isArray(p.presets)?p.presets.slice(0,40).map(v=>({label:String(v.label||'').slice(0,110),format:String(v.format||'').slice(0,100),model:String(v.model||'').slice(0,100),thickness:String(v.thickness||'').slice(0,32),width:String(v.width||'').slice(0,32),usefulWidth:String(v.usefulWidth||'').slice(0,32),length:String(v.length||'').slice(0,32),unit:String(v.unit||'').slice(0,48)})):[],
+      catalogDescription:String(p.catalogDescription||'').slice(0,3000),catalogBenefits:Array.isArray(p.catalogBenefits)?p.catalogBenefits.map(String).slice(0,12):[],catalogSpecs:Array.isArray(p.catalogSpecs)?p.catalogSpecs.slice(0,25).map(x=>({label:String(x.label||'').slice(0,80),value:String(x.value||'').slice(0,200)})):[],
+      published:p.published!==false,price:Number(p.price)||0 }));
+  if(data.paper==='A4'||data.paper==='A5'){const paperPicker=document.getElementById('mpiBookPaper');if(paperPicker)paperPicker.value=data.paper;}
+  MPI_BOOK_SETTINGS={...(data.printConfig||{})};products=clean;heroProducts=clean.slice(0,Math.min(6,clean.length));heroIndex=0;currentCategory='Todos';currentSub='Todos';
+ if(Array.isArray(data.categories))applyPublishedCategories(data.categories);
+  document.getElementById('heroImage').removeAttribute('src');
+  if(heroProducts.length)renderHero();renderProducts();
+  if(document.getElementById('mpiBookPreview')?.classList.contains('open'))buildBooklet();
+});
+document.addEventListener('click',function(event){
+  const link=event.target.closest('a[href^="#solicitar-cotizacion-"]');
+  if(!link)return;
+  event.preventDefault();
+  const suffix=link.getAttribute('href').replace('#solicitar-cotizacion-','');
+  if(window.parent && window.parent!==window){
+    if(suffix==='catalogo') window.parent.postMessage({type:'MPI_CATALOG_CART'},'*');
+    else window.parent.postMessage({type:'MPI_CATALOG_QUOTE',id:Number(suffix)},'*');
+  }else alert('Para cotizar, utiliza el carrito de la tienda principal y configura el WhatsApp oficial.');
+});
+if(window.parent && window.parent!==window){window.parent.postMessage({type:'MPI_CATALOG_READY'},'*')}
+
+
+// V54 · Libro imprimible generado exclusivamente desde el catálogo publicado.
+const MPI_BOOK_TITLE='Mega Prime Import';
+let MPI_BOOK_SETTINGS={};
+const mpiSetting=(key,fallback)=>String(MPI_BOOK_SETTINGS[key]??fallback);
+
+const mpiText=v=>String(v??'');
+const mpiSafe=s=>mpiText(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function mpiBookPhoto(value){
+ const v=mpiText(value).trim();
+ if(!v)return '';
+ if(/^https:\/\//i.test(v)||/^data:image\/(?:png|jpeg|webp);base64,/i.test(v)||/^\/?uploads\/(?:products|media)\/[a-z0-9._-]+$/i.test(v))return v;
+ if(/^photo-[a-z0-9-]+$/i.test(v))return photo(v);
+ return '';
+}
+
+function mpiBookCategoryIndex(){
+ const pub=mpiBookSelected().items||[], map=new Map();
+ pub.forEach(p=>{const k=String(p.category||'Sin categoría');map.set(k,(map.get(k)||0)+1)});
+ return '<div class="mpi63-cover-index"><strong>Contenido del catálogo</strong>'+Array.from(map.entries()).slice(0,7).map(([cat,n])=>'<div><span>'+String(cat).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))+'</span><b>'+n+' producto(s)</b></div>').join('')+'</div>';
+}
+
+function mpiBookCover(main,count){
+ const coverImage=mpiBookPhoto(mpiSetting('coverImage',''))||mpiBookPhoto(main?.img)||'';
+ return `<section class="mpi-book-page mpi-book-cover"><div class="mpi-book-head"><div class="mpi-book-wordmark">${mpiSafe(mpiSetting('company','MEGA PRIME IMPORT'))}</div><div class="mpi-book-num">Página 1 de ${Math.ceil(count/(mpiBookPaper()==='A5'?1:2))+1}</div></div>
+ <div class="mpi-book-cover-main"><div class="mpi-book-cover-kicker">${mpiSafe(mpiSetting('coverKicker','CATÁLOGO DIGITAL · 2026'))}</div><h1 class="mpi-book-cover-title">${mpiSafe(mpiSetting('coverTitle','Soluciones para'))}<br><em>${mpiSafe(mpiSetting('coverAccent','construir'))}</em> ${mpiSafe(mpiSetting('coverEnd','mejor.'))}</h1><div class="mpi-book-cover-subtitle">${mpiSafe(mpiSetting('coverSubtitle','Cubiertas, acabados, herramientas, accesorios y maquinarias para proyectos residenciales, comerciales e industriales.'))}</div><span class="mpi-book-cover-pill">${count} productos publicados</span>${MPI_BOOK_SETTINGS.showCoverIndex===false?'':mpiBookCategoryIndex()}${coverImage?`<img class="mpi-book-cover-photo" src="${mpiSafe(coverImage)}" alt="Producto del catálogo">`:''}</div>
+ <div class="mpi-book-cover-footer"><strong>${mpiSafe(mpiSetting('coverFooter','MEGA PRIME IMPORT · ECUADOR'))}</strong><span>${mpiSafe(mpiSetting('coverDisclaimer','Catálogo sujeto a confirmación de fichas y disponibilidad'))}</span></div></section>`;
+}
+function mpiPrintSummary(value,maxLength){
+ const s=mpiText(value).replace(/\s+/g,' ').trim();
+ return s.length>maxLength?s.slice(0,maxLength).replace(/\s+\S*$/,'').trim()+'…':s;
+}
+function mpiBookProduct(p,sequence,totalProducts){
+ const gallery=[p.img,...(p.gallery||[])].filter(Boolean).map(mpiBookPhoto).filter(Boolean);
+ const unique=[...new Set(gallery)];
+ const main=unique[0]||'';
+ const thumbs=MPI_BOOK_SETTINGS.showThumbs===false?[]:unique.slice(1,4);
+ const variants=(p.presets||[]).filter(Boolean);
+ const v=variants[0]||{};
+ const specs=[
+  ['Modelo / formato',v.format||v.model||p.line1||'Por confirmar'],
+  ['Espesor',v.thickness?`${v.thickness} mm`:'Por confirmar'],
+  ['Ancho total',v.width?`${v.width} m`:'Por confirmar'],
+  ['Ancho útil',v.usefulWidth?`${v.usefulWidth} m`:(p.line2||'Por confirmar')],
+  ['Largo / presentación',v.length?`${v.length} m`:'Por confirmar'],
+  ['Unidad de venta',v.unit||'Por confirmar']
+ ];
+ for(const spec of (p.catalogSpecs||[]).filter(x=>x?.label&&x?.value).slice(0,3))specs.push([spec.label,spec.value]);
+ const remainingSpecs=(p.catalogSpecs||[]).filter(x=>x?.label&&x?.value).length>3;
+ const maxSpecs=Math.max(2,Math.min(8,Number(MPI_BOOK_SETTINGS.specsLimit)||6));
+ const benefits=(MPI_BOOK_SETTINGS.showBenefits===false?[]:(p.catalogBenefits?.length?p.catalogBenefits:[p.line1,p.line2,...variants.slice(0,3).map(x=>x.label)]).map(x=>mpiText(x).trim()).filter(Boolean).slice(0,Math.max(0,Math.min(4,Number(MPI_BOOK_SETTINGS.benefitsLimit??3)))));
+ const colors=MPI_BOOK_SETTINGS.showColors===false?[]:(p.colors||[]).slice(0,6);
+ const description=p.catalogDescription||p.desc||'Características por confirmar con el equipo comercial.';
+ const shortened=mpiText(description).length>270||(p.catalogBenefits||[]).length>3||remainingSpecs;
+ return `<article class="mpi-book-mini" aria-label="Producto ${sequence} de ${totalProducts}: ${mpiSafe(p.name)}">
+ ${MPI_BOOK_SETTINGS.showSequence===false?'':`<div class="mpi-mini-sequence">${mpiSafe(p.subcategory||p.category||'Producto')} · Producto ${sequence} de ${totalProducts}</div>`}
+ ${main?`<img class="mpi-mini-photo" src="${mpiSafe(main)}" alt="${mpiSafe(p.name)}">`:'<div class="mpi-mini-photo mpi-mini-noimage">Fotografía pendiente</div>'}
+ <div class="mpi-mini-thumbs">${thumbs.map(src=>`<img src="${mpiSafe(src)}" alt="Vista adicional">`).join('')}</div>
+ <h2 class="mpi-mini-name">${mpiSafe(p.name||'Producto')}</h2>
+ ${MPI_BOOK_SETTINGS.showDescription===false?'':`<p class="mpi-mini-desc">${mpiSafe(mpiPrintSummary(description,Math.max(70,Math.min(270,Number(MPI_BOOK_SETTINGS.descriptionLength)||270))))}</p>`}
+ ${MPI_BOOK_SETTINGS.showColors===false?'':'<div class="mpi-mini-label">Colores disponibles</div>'}
+ <div class="mpi-mini-colors">${colors.length?colors.map(c=>`<span class="mpi-mini-color"><i class="mpi-mini-dot" style="background:${COLOR_MAP[c]||'#9ba2a6'}"></i>${mpiSafe(c)}</span>`).join(''):'<span class="mpi-mini-color">Por confirmar</span>'}</div>
+ ${benefits.length?`<ul class="mpi-mini-benefits">${benefits.map(t=>`<li>${mpiSafe(mpiPrintSummary(t,85))}</li>`).join('')}</ul>`:''}
+ ${MPI_BOOK_SETTINGS.showTechnicalSpecs===false?'':`<div class="mpi-mini-specs"><h3>Ficha técnica</h3>${specs.slice(0,maxSpecs).map(([k,v])=>`<div class="mpi-mini-row"><b>${mpiSafe(k)}</b><span>${mpiSafe(mpiPrintSummary(v,55))}</span></div>`).join('')}</div>`}
+ <div class="mpi-mini-note">${shortened?'Ficha resumida para impresión; información completa en la ficha digital.':'Especificaciones y disponibilidad sujetas a confirmación.'}</div>
+ </article>`;
+}
+function mpiBookTwoProducts(left,right,pageNumber,totalPages,firstIndex,totalProducts){
+ return `<section class="mpi-book-page mpi-book-two-page"><header class="mpi-book-head"><div class="mpi-book-wordmark">${mpiSafe(mpiSetting('company','MEGA PRIME IMPORT'))}</div><div class="mpi-book-num">Página ${pageNumber} de ${totalPages}</div></header>
+ <div class="mpi-book-duo">${mpiBookProduct(left,firstIndex+1,totalProducts)}${right?mpiBookProduct(right,firstIndex+2,totalProducts):'<div class="mpi-book-mini is-placeholder" aria-hidden="true">Fin de esta selección</div>'}</div>
+ <footer class="mpi-book-foot"><span>${mpiSafe(mpiSetting('pageFooter','MEGA PRIME IMPORT · Catálogo digital'))}</span><span>${mpiSafe(mpiSetting('disclaimer','Precios, stock y especificaciones sujetos a confirmación'))}</span></footer></section>`;
+}
+function mpiBookOneProduct(product,pageNumber,totalPages,firstIndex,totalProducts){
+ return `<section class="mpi-book-page mpi-book-single-page"><header class="mpi-book-head"><div class="mpi-book-wordmark">${mpiSafe(mpiSetting('company','MEGA PRIME IMPORT'))}</div><div class="mpi-book-num">Página ${pageNumber} de ${totalPages}</div></header>
+ <div class="mpi-book-duo mpi85-single-grid">${mpiBookProduct(product,firstIndex+1,totalProducts)}</div>
+ <footer class="mpi-book-foot"><span>${mpiSafe(mpiSetting('pageFooter','MEGA PRIME IMPORT · Catálogo digital'))}</span><span>${mpiSafe(mpiSetting('disclaimer','Precios, stock y especificaciones sujetos a confirmación'))}</span></footer></section>`;
+}
+function mpiBookPaper(){return document.getElementById('mpiBookPaper')?.value==='A5'?'A5':'A4'}
+function mpiBookApplyPaper(){
+ const paper=mpiBookPaper(),preview=document.getElementById('mpiBookPreview');
+ if(preview)preview.dataset.mpiPaper=paper;
+ document.documentElement.classList.toggle('mpi85-print-a5',paper==='A5');
+ const rule=document.getElementById('mpi85PageSizeRule');
+ if(rule)rule.textContent=`@page{size:${paper} portrait;margin:0}`;
+ const heading=document.querySelector('#mpiBookPreview .mpi-book-heading strong');
+ if(heading)heading.textContent='MEGA PRIME IMPORT · Vista previa '+paper;
+ const toggle=document.getElementById('mpi70BookMode');
+ if(toggle&&!preview.classList.contains('mpi70-reader'))toggle.textContent='▤ Vista de hojas '+paper;
+}
+let mpiBookVersion=0;
+function mpiPublished(){return products.filter(p=>p&&p.published!==false)}
+function mpiRefreshBookFilters(){
+ const pub=mpiPublished(),cat=document.getElementById('mpiBookCategory'),sub=document.getElementById('mpiBookSubcategory'),scope=document.getElementById('mpiBookScope').value;
+ const cats=categories.filter(c=>c.key!=='Todos').map(c=>c.key);
+ const oldCat=cat.value;cat.replaceChildren();for(const name of cats){const opt=document.createElement('option');opt.textContent=name;opt.value=name;cat.add(opt)}
+ if(cats.includes(oldCat))cat.value=oldCat;
+ const subs=[...new Set(pub.filter(p=>String(p.category||'Sin categoría')===cat.value).map(p=>String(p.subcategory||'General')))].sort((a,b)=>a.localeCompare(b,'es'));
+ const oldSub=sub.value;sub.replaceChildren();for(const name of subs){const opt=document.createElement('option');opt.textContent=name;opt.value=name;sub.add(opt)}
+ if(subs.includes(oldSub))sub.value=oldSub;
+ document.getElementById('mpiBookCategoryWrap').hidden=scope==='all';
+ document.getElementById('mpiBookSubWrap').hidden=scope!=='subcategory';
+}
+function mpiBookSelected(){
+ const all=mpiPublished(),scope=document.getElementById('mpiBookScope').value,cat=document.getElementById('mpiBookCategory').value,sub=document.getElementById('mpiBookSubcategory').value;
+ let caption='Catálogo completo';
+ if(scope==='all')return {items:all,caption};
+ if(scope==='category'){caption='Categoría: '+cat;return {items:all.filter(p=>String(p.category||'Sin categoría')===cat),caption}}
+ caption='Categoría: '+cat+' · Subcategoría: '+sub;
+ return {items:all.filter(p=>String(p.category||'Sin categoría')===cat&&String(p.subcategory||'General')===sub),caption};
+}
+function buildBooklet(){
+ mpiRefreshBookFilters();
+ mpiBookApplyPaper();
+ const paper=mpiBookPaper();
+ const {items,caption}=mpiBookSelected(),pages=document.getElementById('mpiBookPages');
+ if(!pages)return;
+ const tint=MPI_BOOK_SETTINGS.accent||'#c29b40';pages.style.setProperty('--mpi-print-accent',/^#[0-9a-f]{6}$/i.test(tint)?tint:'#c29b40');
+ pages.style.setProperty('--mpi74-photo-height',Math.max(35,Math.min(65,Number(MPI_BOOK_SETTINGS.photoHeightMm)||55))+'mm');
+ pages.style.setProperty('--mpi74-font-scale',Math.max(.85,Math.min(1.08,Number(MPI_BOOK_SETTINGS.fontScale)||1)));
+ if(!items.length){pages.innerHTML='<div class="mpi-book-empty">No hay productos publicados en esta selección.</div>';document.getElementById('mpiBookStatus').textContent='0 productos · no hay páginas para imprimir';return}
+ // La numeración siempre comienza en 1 para cada documento filtrado.
+ const perPage=paper==='A5'?1:2;
+ const totalPages=1+Math.ceil(items.length/perPage);
+ const spreads=[];
+ for(let i=0;i<items.length;i+=perPage){
+   if(perPage===1)spreads.push(mpiBookOneProduct(items[i],2+i,totalPages,i,items.length));
+   else spreads.push(mpiBookTwoProducts(items[i],items[i+1]||null,2+Math.floor(i/2),totalPages,i,items.length));
+ }
+ pages.innerHTML=mpiBookCover(items[0],items.length)+spreads.join('');
+ const cover=pages.querySelector('.mpi-book-cover-pill');if(cover)cover.textContent=caption+' · '+items.length+' productos';
+ document.getElementById('mpiBookStatus').textContent=caption+' · '+items.length+' productos · '+totalPages+' páginas '+paper+' ('+perPage+' '+(perPage===1?'producto':'productos')+' por hoja)';mpiBookVersion++;
+}
+function openBookPreview(){
+ buildBooklet();document.getElementById('mpiBookPreview').classList.add('open');document.getElementById('mpiBookPreview').setAttribute('aria-hidden','false');document.querySelector('.mpi-book-scroll').scrollTop=0;
+}
+function closeBookPreview(){const n=document.getElementById('mpiBookPreview');n.classList.remove('open');n.setAttribute('aria-hidden','true')}
+function printBooklet(){if(!document.getElementById('mpiBookPreview').classList.contains('open'))openBookPreview();else buildBooklet();if(!mpiBookSelected().items.length){alert('No hay productos para imprimir en la selección actual.');return}window.print()}
+document.getElementById('mpiBookPaper').addEventListener('change',()=>{
+ try{localStorage.setItem('mpi_catalog_paper_v85',mpiBookPaper())}catch(e){}
+ if(window.parent&&window.parent!==window){window.parent.postMessage({type:'MPI_CATALOG_PAPER',paper:mpiBookPaper()},'*')}
+ buildBooklet();window.dispatchEvent(new Event('resize'));
+ document.querySelector('.mpi-book-scroll').scrollTop=0;
+});
+try{if(localStorage.getItem('mpi_catalog_paper_v85')==='A5')document.getElementById('mpiBookPaper').value='A5'}catch(e){}
+mpiBookApplyPaper();
+document.getElementById('mpiBookScope').addEventListener('change',()=>{buildBooklet();document.querySelector('.mpi-book-scroll').scrollTop=0});
+document.getElementById('mpiBookCategory').addEventListener('change',()=>{document.getElementById('mpiBookSubcategory').selectedIndex=0;buildBooklet();document.querySelector('.mpi-book-scroll').scrollTop=0});
+document.getElementById('mpiBookSubcategory').addEventListener('change',()=>{buildBooklet();document.querySelector('.mpi-book-scroll').scrollTop=0});
+window.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('mpiBookPreview').classList.contains('open')){closeBookPreview();e.stopPropagation()}});
+
+
+// Servidor V68: el catálogo independiente también sigue la misma configuración publicada.
+// V90: solo se muestran datos confirmados por la API en modo servidor.
+// El catálogo descargado con file:// permanece disponible como demostración local.
+if(window.parent===window && location.protocol.startsWith('http')){
+ const gate=document.createElement('section');gate.id='mpi90CatalogGate';gate.setAttribute('role','status');
+ gate.innerHTML='<div><h1>Preparando catálogo digital</h1><p id="mpi90CatalogStatus">Consultando las categorías y productos publicados...</p><button type="button" onclick="location.reload()" hidden>Reintentar</button></div>';
+ document.body.append(gate);
+ const unavailable=()=>{document.getElementById('mpi90CatalogStatus').textContent='No es posible confirmar el catálogo publicado. Intenta nuevamente más tarde.';gate.querySelector('button').hidden=false;};
+ fetch('./api/site.php',{credentials:'same-origin',cache:'no-store'}).then(r=>{if(!r.ok)throw Error('API no disponible');return r.json()}).then(data=>{
+  if(!data?.config)throw Error('Contenido no publicado');
+  const conf=data.config;
+  const publishedCats=(Array.isArray(conf.categories)?conf.categories:[]).filter(c=>c&&c.visible!==false&&String(c.name||'').trim());
+  const allowed=new Set(publishedCats.map(c=>String(c.name).trim()));
+  const mapped=(Array.isArray(conf.products)?conf.products:[]).filter(p=>p?.published!==false&&allowed.has(String(p.category||''))).map(p=>({
+   id:Number(p.id),name:String(p.name||''),category:String(p.category||''),subcategory:String(p.subcategory||''),
+   img:String(p.image||''),desc:String(p.description||''),gallery:p.gallery||[],imageSets:p.imageSets||{},
+   colors:p.colors||[],presets:p.presets||[],catalogDescription:p.catalogDescription||'',
+   catalogBenefits:p.catalogBenefits||[],catalogSpecs:p.catalogSpecs||[],price:Number(p.price)||0,published:true
+  }));
+  window.dispatchEvent(new MessageEvent('message',{data:{type:'MPI_CATALOG_SYNC',products:mapped,categories:publishedCats,printConfig:conf.catalogPrint||{}}}));
+  gate.hidden=true;document.documentElement.classList.remove('mpi90-catalog-loading');
+ }).catch(unavailable);
+}
+
+</script>
+<script id="mpi70-catalog-mobile">
+/* Catálogo V70: lectura legible en móviles, A4 sin perder la maqueta imprimible. */
+(()=>{'use strict';
+ const preview=document.getElementById('mpiBookPreview');
+ const pages=document.getElementById('mpiBookPages');
+ const scroller=preview?.querySelector('.mpi-book-scroll');
+ const toggle=document.getElementById('mpi70BookMode');
+ if(!preview||!pages||!scroller||!toggle)return;
+ const narrow=()=>window.matchMedia('(max-width:790px)').matches;
+ let userChoice=null;
+ function fit(){
+  if(!narrow()||!preview.classList.contains('mpi70-a4'))return;
+  const mm=(preview.dataset.mpiPaper==='A5'?148:210)*96/25.4;
+  const scale=Math.max(.22,Math.min(1,(scroller.clientWidth-18)/mm));
+  preview.style.setProperty('--mpi70-book-zoom',String(scale));
+ }
+ function mode(reading){
+  preview.classList.toggle('mpi70-reader',Boolean(reading));
+  preview.classList.toggle('mpi70-a4',!reading);
+  toggle.textContent=reading?'▤ Ver hojas '+(preview.dataset.mpiPaper==='A5'?'A5':'A4'):'▤ Vista de lectura';
+  toggle.setAttribute('aria-pressed',String(Boolean(reading)));
+  toggle.setAttribute('aria-label',reading?'Cambiar a vista de hojas '+(preview.dataset.mpiPaper==='A5'?'A5':'A4'):'Cambiar a vista de lectura cómoda');
+  fit();
+ }
+ toggle.addEventListener('click',()=>{userChoice=!preview.classList.contains('mpi70-reader');mode(userChoice);scroller.scrollTop=0});
+ const originalOpen=window.openBookPreview;
+ if(typeof originalOpen==='function')window.openBookPreview=function(...args){const result=originalOpen.apply(this,args);mode(userChoice===null?narrow():userChoice);return result};
+ window.addEventListener('resize',()=>{if(!narrow()){preview.classList.remove('mpi70-reader','mpi70-a4')}else{mode(userChoice===null?true:userChoice)}});
+ window.addEventListener('beforeprint',()=>{preview.style.setProperty('--mpi70-book-zoom','1')});
+ window.addEventListener('afterprint',fit);
+ mode(narrow());
+})();
+
+</script>
+
+<style id="mpi-v85-a5-printed-catalog">
+.mpi85-book-paper-control{min-width:178px!important}
+#mpiBookPreview[data-mpi-paper="A5"] #mpiBookPages .mpi-book-page{width:148mm!important;height:210mm!important;min-height:210mm!important;aspect-ratio:auto!important;padding:9mm 9mm 8mm!important;font-size:9pt!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-head{min-height:10mm!important;padding-bottom:2mm!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-wordmark{font-size:13pt!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-num{font-size:7pt!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi85-single-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important;flex:1!important;min-height:0!important;padding:2mm 0 0!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-single-page .mpi-book-mini{padding:2mm 3mm!important;min-height:0!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-single-page .mpi-mini-photo{height:43mm!important;min-height:43mm!important;max-height:43mm!important;width:100%!important;object-fit:contain!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-single-page .mpi-mini-thumbs{height:9mm!important;margin-top:1mm!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-single-page .mpi-mini-name{font-size:14pt!important;margin:2mm 0 1mm!important;line-height:1.05!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-single-page .mpi-mini-desc{font-size:8pt!important;line-height:1.3!important;margin:0 0 1.5mm!important;max-height:24mm!important;overflow:hidden!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-single-page .mpi-mini-sequence{font-size:7pt!important;margin-bottom:1mm!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-single-page .mpi-mini-benefits{gap:.5mm!important;margin:1mm 0!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-single-page .mpi-mini-benefits li{font-size:7.5pt!important;line-height:1.2!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-single-page .mpi-mini-label{margin:1mm 0!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-single-page .mpi-mini-colors{gap:1mm 3mm!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-single-page .mpi-mini-specs{padding-top:1mm!important;margin-top:auto!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-single-page .mpi-mini-row{font-size:7.4pt!important;padding:.8mm 1mm!important;line-height:1.1!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-foot{font-size:6.8pt!important;line-height:1.3!important;padding-top:2mm!important;margin-top:2mm!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-cover-title{font-size:34pt!important;line-height:1.02!important;letter-spacing:-1px!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-cover-kicker{font-size:8pt!important;letter-spacing:2px!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-cover-subtitle{font-size:9.5pt!important;line-height:1.45!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-cover-photo{height:48mm!important;max-height:48mm!important;object-fit:contain!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-cover-main{gap:3mm!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi-book-cover-footer{font-size:7pt!important;padding-top:2mm!important}
+#mpiBookPreview[data-mpi-paper="A5"] .mpi63-cover-index{font-size:8pt!important}
+@media(max-width:790px){
+ #mpiBookPreview.mpi70-a4[data-mpi-paper="A5"] #mpiBookPages{width:148mm!important}
+ #mpiBookPreview.mpi70-a4[data-mpi-paper="A5"] .mpi-book-page{width:148mm!important;height:210mm!important;min-height:210mm!important;padding:9mm 9mm 8mm!important}
+ #mpiBookPreview.mpi70-reader[data-mpi-paper="A5"] .mpi-book-page{max-width:100%!important}
+}
+@media print{
+ html.mpi85-print-a5,html.mpi85-print-a5 body{width:148mm!important;min-width:148mm!important;max-width:148mm!important;margin:0!important}
+ html.mpi85-print-a5 #mpiBookPreview{width:148mm!important;max-width:148mm!important}
+ html.mpi85-print-a5 #mpiBookPreview #mpiBookPages{width:148mm!important;max-width:148mm!important;zoom:1!important}
+ html.mpi85-print-a5 #mpiBookPreview .mpi-book-page{width:148mm!important;height:210mm!important;min-height:210mm!important;max-height:210mm!important;padding:9mm 9mm 8mm!important;break-after:page!important;page-break-after:always!important;overflow:hidden!important}
+ html.mpi85-print-a5 #mpiBookPreview .mpi-book-page:last-child{break-after:auto!important;page-break-after:auto!important}
+ html.mpi85-print-a5 #mpiBookPreview .mpi85-single-grid{grid-template-columns:minmax(0,1fr)!important}
+ html.mpi85-print-a5 #mpiBookPreview .mpi-book-single-page .mpi-mini-photo{height:43mm!important}
+}
+</style>
+<style id="mpi85PageSizeRule">@page{size:A4 portrait;margin:0}</style>
+</body>
+</html>

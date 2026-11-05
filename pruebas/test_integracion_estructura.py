@@ -1,0 +1,37 @@
+from pathlib import Path
+import re, json, zipfile
+R=Path(__file__).resolve().parents[1]; outcomes={}
+def test(name, ok):
+    outcomes[name]=bool(ok)
+    print(('PASS ' if ok else 'FAIL ')+name)
+store=(R/'tienda/app/bootstrap.php').read_text()
+liq=(R/'liquidaciones/private/bootstrap.php').read_text()
+auth=(R/'acceso/private/bootstrap.php').read_text()
+bridge=(R/'integracion/sso_client.php').read_text()
+for name, file in [('Base tienda','tienda/schema.sql'),('Base liquidaciones','liquidaciones/private/schema.sql'),('Base identidades','acceso/schema.sql'),('Catálogo demostrativo','tienda/fixtures/demo_catalog.json')]:test(name,(R/file).is_file())
+for f in ['tienda/public/admin/sso_callback.php','liquidaciones/public/sso_callback.php','acceso/public/authorize.php','acceso/public/exchange.php','acceso/public/status.php','acceso/public/revoke.php','acceso/public/logout.php','acceso/public/permissions.php']:
+    test('Ruta '+f,(R/f).exists())
+test('Centro usa usuarios originales tienda','FROM admin_users' in auth)
+test('Centro no duplica contraseñas','CREATE TABLE IF NOT EXISTS identity_users' not in (R/'acceso/schema.sql').read_text())
+test('Perfiles por app y permiso explícito','identity_grants' in auth and "['admin','analyst']" in auth)
+test('Centro niega admin financiero tras degradar rol',"$r==='admin'" in auth and 'id_get_user($user)' in auth)
+test('Protección de código de un solo uso','FOR UPDATE' in (R/'acceso/public/exchange.php').read_text() and 'used_at=UTC_TIMESTAMP()' in (R/'acceso/public/exchange.php').read_text())
+test('Comprobación de state y PKCE',"hash_equals" in bridge and 'code_verifier' in bridge)
+test('Cookies privadas por host','session_set_cookie_params' in auth and "'domain'" not in auth)
+test('Caducidad y revocación central','revoked_at IS NULL' in auth and 'INTERVAL 30 MINUTE' in auth)
+test('Tienda bloquea sesión local sin SSO','sso_identity' in store and 'mpi_sso_status' in store)
+test('Liquidación bloquea sesión local sin SSO','sso_identity' in liq and 'mpi_sso_status' in liq)
+test('Liquidación crea vínculo separado','identity_user_links' in (R/'liquidaciones/public/sso_callback.php').read_text())
+test('La tienda pública permanece independiente',(R/'tienda/public/index.html').is_file())
+test('Liquidación no abre segundo catálogo público',"mpi_sso_enabled()" in (R/'liquidaciones/public/index.php').read_text())
+test('Liquidación deshabilita crear usuarios paralelos',"Las cuentas se administran únicamente" in (R/'liquidaciones/private/panel_actions.php').read_text())
+test('Liquidación no publica el servicio de proformas duplicado',"mpi_sso_enabled()" in (R/'liquidaciones/public/quote.php').read_text())
+test('Usuarios central gestionados por tienda',"href=\"./users.php\"" not in (R/'acceso/public/permissions.php').read_text() and 'admin_users' in (R/'acceso/public/permissions.php').read_text())
+test('La tienda conserva catálogo demo',len(json.loads((R/'tienda/fixtures/demo_catalog.json').read_text())['products'])==27)
+test('No se añadió ninguna clave OpenAI',not any('sk-proj-' in x.read_text(errors='ignore') for x in R.rglob('*.php')))
+test('Se conservan pruebas motor cálculo',(R/'liquidaciones/tools/pruebas_motor.cjs').is_file())
+test('Tienda contiene lector IA local', (R/'tienda/public/plan-ai-ui.js').is_file())
+failed=[k for k,v in outcomes.items() if not v]
+(R/'pruebas/resultado_integracion.json').write_text(json.dumps({'correctas':len(outcomes)-len(failed),'fallidas':len(failed),'fallas':failed},indent=2,ensure_ascii=False))
+print(f'ESTRUCTURA: {len(outcomes)-len(failed)}/{len(outcomes)} correctas')
+raise SystemExit(bool(failed))
