@@ -49,12 +49,9 @@ services:
       # Recuperación de contraseña por correo (opcional; requiere MTA en el host).
       MP_PUBLIC_BASE_URL: ${MP_PUBLIC_BASE_URL:-}
       MP_RESET_FROM: ${MP_RESET_FROM:-}
-    extra_hosts:
-      # Permite que el SSO servidor-a-servidor llegue a Traefik sin depender
-      # del hairpin NAT del VPS. Si usas otro proxy, puedes quitar este bloque.
-      - "${MPI_DOMAIN_TIENDA:-megaprimeimport.com}:host-gateway"
-      - "${MPI_DOMAIN_ACCESO:-acceso.megaprimeimport.com}:host-gateway"
-      - "${MPI_DOMAIN_LIQUIDACIONES:-liquidaciones.megaprimeimport.com}:host-gateway"
+    # No usar extra_hosts para los dominios públicos: el SSO debe resolverlos
+    # por DNS y validar el certificado real. Mapearlos a host-gateway hace que
+    # cURL vea el certificado self-signed por defecto de Traefik y falle.
     volumes:
       - mpi_uploads_tienda:/var/www/mpi/tienda/public/uploads
       - mpi_uploads_liquidaciones:/var/www/mpi/liquidaciones/public/uploads

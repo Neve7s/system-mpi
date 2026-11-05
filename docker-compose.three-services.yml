@@ -12,10 +12,9 @@ x-mpi: &mpi
   restart: unless-stopped
   expose:
     - "80"
-  extra_hosts:
-    - "${MPI_DOMAIN_TIENDA:-megaprimeimport.com}:host-gateway"
-    - "${MPI_DOMAIN_ACCESO:-acceso.megaprimeimport.com}:host-gateway"
-    - "${MPI_DOMAIN_LIQUIDACIONES:-liquidaciones.megaprimeimport.com}:host-gateway"
+  # No usar extra_hosts para los dominios públicos: el SSO debe resolverlos
+  # por DNS y validar el certificado real. Mapearlos a host-gateway hace que
+  # cURL vea el certificado self-signed por defecto de Traefik y falle.
   environment: &mpi-env
     MARIADB_URL: ${MARIADB_URL:-}
     MPI_DOMAIN_TIENDA: ${MPI_DOMAIN_TIENDA:-megaprimeimport.com}

@@ -526,7 +526,7 @@ Prueba la restauración en una base de ensayo antes de confiar en el backup.
 | `No se pudo crear la base` | Usuario sin `CREATE DATABASE` | Usa `MPI_DB_MODE=single` con una base existente en `MARIADB_URL`, o crea las bases y concede permisos. |
 | `503 Acceso central pendiente de configuración` | No se generó `acceso/private/config.php` | Revisa los logs del entrypoint. No arranques el contenedor con `--entrypoint` personalizado. |
 | `403 Se requiere HTTPS` | La petición no pasó por Traefik o falta `mpi-proxy.conf` | Accede por el dominio público de Coolify, no por `IP:80`. Revisa que `conf-available/mpi-proxy.conf` esté habilitado. |
-| Bucle al iniciar sesión o `Acceso central no disponible` | El contenedor no puede resolver/llamar a `https://acceso...` | Verifica `extra_hosts` o el hairpin NAT. Prueba `curl -v https://acceso...` dentro del contenedor. |
+| Bucle al iniciar sesión o `Acceso central no disponible` | El contenedor no puede resolver/llamar a `https://acceso...` o ve un certificado distinto | Comprueba `docker exec <web> getent hosts acceso...` y `curl -v https://acceso...` dentro del contenedor. Debe resolver al DNS público y validar el certificado; no mapees el dominio a `host-gateway`. |
 | `502 Bad Gateway` | Contenedor caído o sin escuchar en 80 | Revisa logs y healthcheck. |
 | `404` en `/admin/` | `DirectoryIndex` antiguo | El repo ya incluye `DirectoryIndex index.html index.php`; asegúrate de desplegar el archivo actualizado. |
 | `403` en `/sso_callback.php` de liquidaciones | `.htaccess` sin el callback en la lista blanca | El repo ya lo incluye; redeploy y limpia caché del proxy. |
